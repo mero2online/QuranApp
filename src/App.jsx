@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { loadData } from './Data';
 import { PageSwiper } from './PageSwiper';
+import DrawerCustomized from './DrawerCustomized';
 const data = loadData();
 function App() {
   const [count, setCount] = useState(0);
@@ -10,7 +11,7 @@ function App() {
   const [subOptions, setSubOptions] = useState([1]);
 
   useEffect(() => {
-    getImg(1);
+    // getImg(1);
     setCount(1);
   }, []);
 
@@ -19,7 +20,7 @@ function App() {
     const pageNo = String(id).padStart(3, '0');
     const img = await fetch(
       // `https://archive.org/download/mtmha_pages_AutoCorrected/page${pageNo}.png`
-      `./imgs/page${pageNo}.png`
+      `./imgs/jpg/page${pageNo}.jpg`
     );
     setImgSrc(img.url);
     setLoading(false);
@@ -38,11 +39,11 @@ function App() {
         : range(sura.START_PAGE, sura.END_PAGE);
     setSubOptions(pagesPerSura);
     setCount(sura.START_PAGE);
-    getImg(sura.START_PAGE);
+    // getImg(sura.START_PAGE);
   };
   const handelOnSelectionChangeSub = (page) => {
     setCount(Number(page));
-    getImg(Number(page));
+    // getImg(Number(page));
   };
 
   const renderOptions = (options) => {
@@ -85,6 +86,12 @@ function App() {
   return (
     <>
       <div>Quran App</div>
+      <DrawerCustomized
+        Data={data}
+        handelOnSelectionChange={handelOnSelectionChange}
+        handelOnSelectionChangeSub={handelOnSelectionChangeSub}
+        pagesPerSura={subOptions}
+      />
       {renderOptions(data)}
       {renderSubOptions(subOptions)}
       <div>
@@ -92,7 +99,7 @@ function App() {
           className='MyBtn'
           onClick={() => {
             setCount(count + 1);
-            getImg(count + 1);
+            // getImg(count + 1);
           }}
           disabled={count >= 604 ? true : false}
         >
@@ -103,7 +110,7 @@ function App() {
           className='MyBtn'
           onClick={() => {
             setCount(count - 1);
-            getImg(count - 1);
+            // getImg(count - 1);
           }}
           disabled={count <= 1 ? true : false}
         >
@@ -122,15 +129,15 @@ function App() {
         <button
           className='MyBtn'
           onClick={() => {
-            getImg(count);
+            // getImg(count);
           }}
           disabled={count <= 1 || count >= 605 ? true : false}
         >
           Go
         </button>
-        {renderImage()}
+        {/* {renderImage()} */}
       </div>
-      <PageSwiper></PageSwiper>
+      <PageSwiper pageIdx={count} ranges={subOptions}></PageSwiper>
     </>
   );
 }

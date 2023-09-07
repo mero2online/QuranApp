@@ -1,18 +1,14 @@
 import { useRef, useEffect } from 'react';
 import { register } from 'swiper/element/bundle';
-
-const range = (start, end) =>
-  Array(end - start + 1)
-    .fill()
-    .map((_, idx) => start + idx);
+import PropTypes from 'prop-types';
 
 register();
-export const PageSwiper = () => {
+export const PageSwiper = ({ pageIdx, ranges }) => {
   const swiperElRef = useRef(null);
+
   useEffect(() => {
     const swiperParams = {
       dir: 'rtl',
-      lazy: true,
       slidesPerView: 1,
     };
 
@@ -31,27 +27,45 @@ export const PageSwiper = () => {
     });
 
     swiperElRef.current.addEventListener('slidechange', (e) => {
+      console.log(e.detail[0].activeIndex);
+      console.log(ranges[e.detail[0].activeIndex]);
       {
         e;
       }
     });
-  }, []);
-  const data = range(1, 604);
+  }, [ranges]);
+
+  const swipeToSlideByIndex = (index) => {
+    swiperElRef.current.swiper.slideTo(index);
+  };
+
+  if (swiperElRef.current && pageIdx) {
+    swipeToSlideByIndex(ranges.indexOf(pageIdx));
+  }
+
   return (
     <swiper-container init='false' ref={swiperElRef}>
-      {data.map((img, i) => {
+      {ranges.map((img, i) => {
         const pageNo = String(img).padStart(3, '0');
         return (
-          <swiper-slide key={i} lazy="true">
+          <swiper-slide key={i}>
             <img
-              src={`./imgs/page${pageNo}.png`}
-              alt='img'
+              src={`./imgs/jpg/page${pageNo}.jpg`}
+              alt={`page${pageNo}`}
               className='img'
               loading='lazy'
+              onLoad={() => {
+                console.log('loaded');
+              }}
             />
           </swiper-slide>
         );
       })}
     </swiper-container>
   );
+};
+
+PageSwiper.propTypes = {
+  pageIdx: PropTypes.number,
+  ranges: PropTypes.array.isRequired,
 };
