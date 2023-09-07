@@ -25,35 +25,6 @@ function App() {
     setCount(Number(page));
   };
 
-  const renderOptions = (options) => {
-    return (
-      <select onChange={(e) => handelOnSelectionChange(e.target.value)}>
-        {options.map((o, i) => {
-          return (
-            <option key={i} value={i}>
-              {o.Sura_No}_-_{o.Sura_Name_ENG}_-_{o.Sura_Name_ARA}
-            </option>
-          );
-        })}
-      </select>
-    );
-  };
-
-  const renderSubOptions = (options) => {
-    if (options)
-      return (
-        <select onChange={(e) => handelOnSelectionChangeSub(e.target.value)}>
-          {options.map((o, i) => {
-            return (
-              <option key={i} value={o}>
-                {o}
-              </option>
-            );
-          })}
-        </select>
-      );
-  };
-
   return (
     <>
       <div>Quran App</div>
@@ -63,8 +34,6 @@ function App() {
         handelOnSelectionChangeSub={handelOnSelectionChangeSub}
         pagesPerSura={subOptions}
       />
-      {renderOptions(data)}
-      {renderSubOptions(subOptions)}
       <div>{count}</div>
       <PageSwiper pageIdx={count} ranges={subOptions}></PageSwiper>
     </>
