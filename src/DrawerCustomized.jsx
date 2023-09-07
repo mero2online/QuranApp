@@ -86,11 +86,10 @@ const DrawerCustomized = ({
                   onClick={() => handelOnSelectionChangeSub(s)}
                 >
                   <ListItemButton>
-                    <ListItemText primary={idx+1} />
                     <ListItemIcon sx={{ color: 'white' }}>
                       <MenuBookIcon />
                     </ListItemIcon>
-                    <ListItemText primary={`(${page.Sura_Name_ARA}) - ${s}`} />
+                    <ListItemText primary={`${page.Sura_No} - Page - ${s}`} />
                   </ListItemButton>
                 </ListItem>
               ))}
