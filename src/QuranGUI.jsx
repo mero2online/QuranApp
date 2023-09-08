@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { loadData, range } from './Data';
 import { PageSwiper } from './PageSwiper';
 import DrawerCustomized from './DrawerCustomized';
 const data = loadData();
 
 const QuranGUI = () => {
+  let { SuraNo, PageNo } = useParams();
   const [count, setCount] = useState(0);
   const [subOptions, setSubOptions] = useState([1]);
 
   useEffect(() => {
-    setCount(1);
-  }, []);
+    if (SuraNo && PageNo) {
+      handelOnSelectionChange(SuraNo - 1);
+      handelOnSelectionChangeSub(PageNo);
+    }
+  }, [SuraNo, PageNo]);
 
   const handelOnSelectionChange = (idx) => {
     const sura = data[idx];
@@ -27,14 +32,13 @@ const QuranGUI = () => {
 
   return (
     <>
-      <DrawerCustomized
-        Data={data}
-        handelOnSelectionChange={handelOnSelectionChange}
-        handelOnSelectionChangeSub={handelOnSelectionChangeSub}
-        pagesPerSura={subOptions}
-      />
+      <DrawerCustomized Data={data} pagesPerSura={subOptions} />
       <div>{count}</div>
-      <PageSwiper pageIdx={count} ranges={subOptions}></PageSwiper>
+      <PageSwiper
+        pageIdx={count}
+        ranges={subOptions}
+        setCount={setCount}
+      ></PageSwiper>
     </>
   );
 };

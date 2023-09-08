@@ -16,13 +16,9 @@ import {
 } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
 
-const DrawerCustomized = ({
-  Data,
-  handelOnSelectionChange,
-  handelOnSelectionChangeSub,
-  pagesPerSura,
-}) => {
+const DrawerCustomized = ({ Data, pagesPerSura }) => {
   const [state, setState] = useState(false);
   const [openCollapse, setOpenCollapse] = useState({});
 
@@ -53,46 +49,56 @@ const DrawerCustomized = ({
     >
       <List>
         {Data.map((page, index) => (
-          <div key={index} style={{ textDecoration: 'none', color: 'white' }}>
-            <ListItem
-              disablePadding
-              onClick={() => {
-                handelOnSelectionChange(index);
-                let myColl = {};
-                Data.forEach((element, idx) => {
-                  if (idx === index) {
-                    myColl[idx] = !openCollapse[index];
-                  } else {
-                    myColl[idx] = false;
-                  }
-                });
-                setOpenCollapse(myColl);
-              }}
+          <div key={index}>
+            <Link
+              to={`/${page.Sura_No}/${page.START_PAGE}`}
+              style={{ textDecoration: 'none', color: 'white' }}
             >
-              <ListItemButton>
-                <ListItemIcon sx={{ color: 'white' }}>
-                  <LibraryBooksIcon />
-                </ListItemIcon>
-                <ListItemText
-                  primary={`${page.Sura_No} - ${page.Sura_Name_ENG} - ${page.Sura_Name_ARA}`}
-                />
-              </ListItemButton>
-            </ListItem>
+              <ListItem
+                disablePadding
+                onClick={() => {
+                  let myColl = {};
+                  Data.forEach((element, idx) => {
+                    if (idx === index) {
+                      myColl[idx] = !openCollapse[index];
+                    } else {
+                      myColl[idx] = false;
+                    }
+                  });
+                  setOpenCollapse(myColl);
+                }}
+              >
+                <ListItemButton>
+                  <ListItemIcon sx={{ color: 'white' }}>
+                    <LibraryBooksIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={`${page.Sura_No} - ${page.Sura_Name_ENG} - ${page.Sura_Name_ARA}`}
+                  />
+                </ListItemButton>
+              </ListItem>
+            </Link>
             <Collapse in={openCollapse[index]} timeout='auto' unmountOnExit>
-              {pagesPerSura.map((s, idx) => (
-                <ListItem
-                  key={idx}
-                  disablePadding
-                  onClick={() => handelOnSelectionChangeSub(s)}
-                >
-                  <ListItemButton>
-                    <ListItemIcon sx={{ color: 'white' }}>
-                      <MenuBookIcon />
-                    </ListItemIcon>
-                    <ListItemText primary={`${page.Sura_No} - Page - ${s}`} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
+              <List>
+                {pagesPerSura.map((s, idx) => (
+                  <Link
+                    key={idx}
+                    to={`/${page.Sura_No}/${s}`}
+                    style={{ textDecoration: 'none', color: 'white' }}
+                  >
+                    <ListItem disablePadding>
+                      <ListItemButton>
+                        <ListItemIcon sx={{ color: 'white' }}>
+                          <MenuBookIcon />
+                        </ListItemIcon>
+                        <ListItemText
+                          primary={`${page.Sura_No} - Page - ${s}`}
+                        />
+                      </ListItemButton>
+                    </ListItem>
+                  </Link>
+                ))}
+              </List>
             </Collapse>
             <Divider />
           </div>
@@ -130,8 +136,6 @@ const DrawerCustomized = ({
 };
 DrawerCustomized.propTypes = {
   Data: PropTypes.array.isRequired,
-  handelOnSelectionChange: PropTypes.func.isRequired,
-  handelOnSelectionChangeSub: PropTypes.func.isRequired,
   pagesPerSura: PropTypes.array.isRequired,
 };
 export default DrawerCustomized;
