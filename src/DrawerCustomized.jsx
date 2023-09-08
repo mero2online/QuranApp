@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
@@ -17,10 +17,13 @@ import {
 
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const DrawerCustomized = ({ Data, pagesPerSura }) => {
   const [state, setState] = useState(false);
   const [openCollapse, setOpenCollapse] = useState({});
+  const refs = useRef([]);
+  let { SuraNo } = useParams();
 
   useEffect(() => {
     let myColl = {};
@@ -29,6 +32,16 @@ const DrawerCustomized = ({ Data, pagesPerSura }) => {
     });
     setOpenCollapse(myColl);
   }, [Data]);
+  useEffect(() => {
+    if (state) {
+      setTimeout(() => {
+        refs.current[SuraNo - 1]?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      }, 1000);
+    }
+  });
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -53,6 +66,9 @@ const DrawerCustomized = ({ Data, pagesPerSura }) => {
             <Link
               to={`/${page.Sura_No}/${page.START_PAGE}`}
               style={{ textDecoration: 'none', color: 'white' }}
+              ref={(element) => {
+                refs.current[index] = element;
+              }}
             >
               <ListItem
                 disablePadding
