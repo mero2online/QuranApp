@@ -1,13 +1,11 @@
 import { useRef, useEffect } from 'react';
 import { register } from 'swiper/element/bundle';
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
 import { modifyUrl } from './Data';
 
 register();
 
 export const PageSwiper = ({ pageIdx, ranges, setCount }) => {
-  const location = useLocation();
   const swiperElRef = useRef(null);
 
   useEffect(() => {
@@ -33,8 +31,8 @@ export const PageSwiper = ({ pageIdx, ranges, setCount }) => {
 
     swiperElRef.current.addEventListener('slidechange', (e) => {
       if (e.detail[0].activeIndex) {
-        let pathName = String(location.pathname).split('/');
-        pathName[2] = ranges[e.detail[0].activeIndex];
+        let pathName = String(window.location.pathname).split('/');
+        pathName[3] = ranges[e.detail[0].activeIndex];
         let newPath = pathName.join('/');
         modifyUrl(location.pathname, newPath);
         setCount(ranges[e.detail[0].activeIndex])
@@ -44,7 +42,7 @@ export const PageSwiper = ({ pageIdx, ranges, setCount }) => {
     if (swiperElRef.current && pageIdx) {
       swiperElRef.current.swiper.slideTo(ranges.indexOf(pageIdx));
     }
-  }, [ranges, location, pageIdx, setCount]);
+  }, [ranges, pageIdx, setCount]);
 
   return (
     <swiper-container init='false' ref={swiperElRef}>
@@ -53,7 +51,7 @@ export const PageSwiper = ({ pageIdx, ranges, setCount }) => {
         return (
           <swiper-slide key={i}>
             <img
-              src={`/imgs/jpg/page${pageNo}.jpg`}
+              src={`/quran/imgs/jpg/page${pageNo}.jpg`}
               alt={`page${pageNo}`}
               className='img'
               loading='lazy'

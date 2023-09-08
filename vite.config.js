@@ -6,7 +6,7 @@ import vitePluginFtp from 'vite-plugin-ftp';
 export default ({ mode, command }) => {
   // eslint-disable-next-line no-undef
   process.env = Object.assign(process.env, loadEnv(mode, process.cwd(), ''));
-  const BASE_URL = mode === 'development' ? '' : '/quran';
+  const BASE_URL = mode === 'development' ? '/quran' : '/quran';
   const PUBLIC_FOLDER = command === 'build' ? false : 'public';
 
   return defineConfig({
