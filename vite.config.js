@@ -3,13 +3,15 @@ import react from '@vitejs/plugin-react';
 import vitePluginFtp from 'vite-plugin-ftp';
 
 // https://vitejs.dev/config/
-export default ({ mode }) => {
+export default ({ mode, command }) => {
   // eslint-disable-next-line no-undef
   process.env = Object.assign(process.env, loadEnv(mode, process.cwd(), ''));
   const BASE_URL = mode === 'development' ? '' : '/quran';
+  const PUBLIC_FOLDER = command === 'build' ? false : 'public';
 
   return defineConfig({
     base: BASE_URL,
+    publicDir: PUBLIC_FOLDER,
     server: {
       port: '3000',
       // hmr: { overlay: false },
