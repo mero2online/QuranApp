@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { loadData, range } from './Data';
 import { PageSwiper } from './PageSwiper';
 import DrawerCustomized from './DrawerCustomized';
@@ -32,6 +32,7 @@ const QuranGUI = () => {
 
   return (
     <>
+      <Link to='/'>Home</Link>
       <DrawerCustomized Data={data} pagesPerSura={subOptions} />
       <div>{count}</div>
       <PageSwiper
