@@ -1,53 +1,44 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import ProgressiveImage from 'react-progressive-graceful-image';
 
-const LoadImages = ({ IMAGES }) => {
-  const [imgsLoaded, setImgsLoaded] = useState(false);
-  const [imgCount, setImgCount] = useState();
+const LoadImages = ({ RANGE }) => {
+  const [IMAGES, setIMAGES] = useState([]);
+  //   const [imgsLoaded, setImgsLoaded] = useState(false);
 
   useEffect(() => {
-    const loadImage = (image) => {
-      return new Promise((resolve, reject) => {
-        const loadImg = new Image();
-        loadImg.src = image.url;
-        // wait 2 seconds to simulate loading time
-        loadImg.onload = () => {
-            setImgCount(image.pageNo)
-          setTimeout(() => {
-            resolve(image.url);
-          }, 2000);
-        };
-
-        loadImg.onerror = (err) => reject(err);
+    let images = [];
+    RANGE.forEach((element) => {
+      const pageNo = String(element).padStart(3, '0');
+      images.push({
+        id: element,
+        pageNo: pageNo,
+        url: `/quran/imgs/jpg/page${pageNo}.jpg`,
       });
-    };
-
-    Promise.all(IMAGES.map((image) => loadImage(image)))
-      .then(() => setImgsLoaded(true))
-      .catch((err) => console.log('Failed to load images', err));
-  }, [IMAGES]);
-
-  useEffect(() => {
-    console.log(imgsLoaded);
-  }, [imgsLoaded]);
+    });
+    setIMAGES(images);
+  }, [RANGE]);
 
   return (
     <>
       <div className='images' dir='rtl'>
-        {imgsLoaded ? (
-          IMAGES.map((image) => (
-            <img key={image.id} src={image.url} alt={image.pageNo} />
-          ))
-        ) : (
-          <p>Loading images... {imgCount}</p>
-        )}
+        {IMAGES.map((image) => (
+          <ProgressiveImage
+            key={image.id}
+            src={image.url}
+            placeholder='/quran/imgs/placeholder.jpg'
+          >
+            {(src, loading) => {
+              console.log(loading);
+              return <img src={src} alt={image.pageNo} />;
+            }}
+          </ProgressiveImage>
+        ))}
       </div>
     </>
   );
 };
-
 LoadImages.propTypes = {
-  IMAGES: PropTypes.array.isRequired,
+  RANGE: PropTypes.array.isRequired,
 };
-
 export default LoadImages;
