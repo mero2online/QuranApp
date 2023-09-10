@@ -9,34 +9,19 @@ import {
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import { Link } from 'react-router-dom';
 
-import { loadData, range } from './Data';
-import { useState } from 'react';
-import LoadImages from './LoadImages';
+import { loadData } from './Data';
 const data = loadData();
 
 const Home = () => {
-  const [IMAGES, setIMAGES] = useState([]);
-
   return (
     <div>
       <div>Quran App</div>
-      <button
-        onClick={() => {
-          let images = [];
-          range(1, 604).forEach((element) => {
-            const pageNo = String(element).padStart(3, '0');
-            images.push({
-              id: element,
-              pageNo: pageNo,
-              url: `/quran/imgs/jpg/page${pageNo}.jpg`,
-            });
-          });
-          setIMAGES(images);
-        }}
-      >
-        Get All Images
-      </button>
-      {IMAGES.length > 0 && <LoadImages IMAGES={IMAGES} />}
+      <div>
+        <Link to='/all'>All Pages</Link>
+      </div>
+      <div>
+        <Link to='/ranges'>Ranges</Link>
+      </div>
       <List>
         {data.map((page, index) => (
           <div key={index}>

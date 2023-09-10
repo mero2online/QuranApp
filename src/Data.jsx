@@ -7,6 +7,15 @@ export const range = (start, end) =>
     .fill()
     .map((_, idx) => start + idx);
 
+export const chunks = (array, chunkSize) => {
+  let chunks = [];
+
+  for (let i = 0; i < array.length; i += chunkSize) {
+    chunks.push(array.slice(i, i + chunkSize));
+  }
+
+  return chunks;
+};
 export const modifyUrl = (title, url) => {
   if (typeof window.history.pushState != 'undefined') {
     var obj = {
