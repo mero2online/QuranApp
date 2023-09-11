@@ -12,18 +12,27 @@ const Ranges = () => {
     <div>
       <Link to='/'>Home</Link>
       <div>
-        {myRanges.map((page, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              setRangeIndex(index);
-            }}
-          >
-            <ListItemButton>
-              <ListItemText primary={`${index + 1}`} />
-            </ListItemButton>
-          </button>
-        ))}
+        <button
+        disabled={rangeIndex === myRanges.length-1}
+          onClick={() => {
+            setRangeIndex(rangeIndex + 1);
+          }}
+        >
+          <ListItemButton>
+            <ListItemText primary={`Next ${rangeIndex + 1}`} />
+          </ListItemButton>
+        </button>
+        <button>{rangeIndex}</button>
+        <button
+          disabled={rangeIndex === 0}
+          onClick={() => {
+            setRangeIndex(rangeIndex - 1);
+          }}
+        >
+          <ListItemButton>
+            <ListItemText primary={`Prev ${rangeIndex - 1}`} />
+          </ListItemButton>
+        </button>
       </div>
       <LoadImages RANGE={myRanges[rangeIndex]} />
     </div>
