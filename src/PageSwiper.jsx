@@ -34,8 +34,8 @@ export const PageSwiper = ({ pageIdx, ranges, setCount }) => {
         let pathName = String(window.location.pathname).split('/');
         pathName[3] = ranges[e.detail[0].activeIndex];
         let newPath = pathName.join('/');
-        modifyUrl(location.pathname, newPath);
         setCount(ranges[e.detail[0].activeIndex])
+        modifyUrl(location.pathname, newPath);
       }
     });
 
