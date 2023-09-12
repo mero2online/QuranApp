@@ -19,7 +19,8 @@
     "react-progressive-graceful-image": "^0.7.0",
     "react-router-dom": "^6.15.0",
     "swiper": "^10.2.0",
-    "vite-plugin-ftp": "^0.0.8"
+    "vite-plugin-ftp": "^0.0.8",
+    "vite-plugin-pwa": "^0.16.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
