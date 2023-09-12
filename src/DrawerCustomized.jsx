@@ -61,64 +61,68 @@ const DrawerCustomized = ({ Data, pagesPerSura }) => {
       // onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {Data.map((page, index) => (
-          <div key={index}>
-            <Link
-              to={`/${page.Sura_No}/${page.START_PAGE}`}
-              style={{ textDecoration: 'none', color: 'white' }}
-              ref={(element) => {
-                refs.current[index] = element;
-              }}
-            >
-              <ListItem
-                disablePadding
-                onClick={() => {
-                  let myColl = {};
-                  Data.forEach((element, idx) => {
-                    if (idx === index) {
-                      myColl[idx] = !openCollapse[index];
-                    } else {
-                      myColl[idx] = false;
-                    }
-                  });
-                  setOpenCollapse(myColl);
+        {Data.map((page, index) => {
+          const activeIndexClass =
+            Number(SuraNo) - 1 === index ? 'activeIndex' : '';
+          return (
+            <div key={index}>
+              <Link
+                to={`/${page.Sura_No}/${page.START_PAGE}`}
+                style={{ textDecoration: 'none', color: 'white' }}
+                ref={(element) => {
+                  refs.current[index] = element;
                 }}
               >
-                <ListItemButton>
-                  <ListItemIcon sx={{ color: 'white' }}>
-                    <LibraryBooksIcon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={`${page.Sura_No} - ${page.Sura_Name_ENG} - ${page.Sura_Name_ARA}`}
-                  />
-                </ListItemButton>
-              </ListItem>
-            </Link>
-            <Collapse in={openCollapse[index]} timeout='auto' unmountOnExit>
-              <List>
-                {pagesPerSura.map((s, idx) => (
-                  <Link
-                    key={idx}
-                    to={`/${page.Sura_No}/${s}`}
-                    style={{ textDecoration: 'none', color: 'white' }}
-                  >
-                    <ListItem disablePadding>
-                      <ListItemButton>
-                        <ListItemIcon sx={{ color: 'white' }}>
-                          <MenuBookIcon />
-                        </ListItemIcon>
-                        <ListItemText
-                          primary={`${page.Sura_No} - Page - ${s}`}
-                        />
-                      </ListItemButton>
-                    </ListItem>
-                  </Link>
-                ))}
-              </List>
-            </Collapse>
-            <Divider />
-          </div>
-        ))}
+                <ListItem
+                  disablePadding
+                  onClick={() => {
+                    let myColl = {};
+                    Data.forEach((element, idx) => {
+                      if (idx === index) {
+                        myColl[idx] = !openCollapse[index];
+                      } else {
+                        myColl[idx] = false;
+                      }
+                    });
+                    setOpenCollapse(myColl);
+                  }}
+                >
+                  <ListItemButton className={activeIndexClass}>
+                    <ListItemIcon sx={{ color: 'white' }}>
+                      <LibraryBooksIcon />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={`${page.Sura_No} - ${page.Sura_Name_ENG} - ${page.Sura_Name_ARA}`}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+              <Collapse in={openCollapse[index]} timeout='auto' unmountOnExit>
+                <List>
+                  {pagesPerSura.map((s, idx) => (
+                    <Link
+                      key={idx}
+                      to={`/${page.Sura_No}/${s}`}
+                      style={{ textDecoration: 'none', color: 'white' }}
+                    >
+                      <ListItem disablePadding>
+                        <ListItemButton>
+                          <ListItemIcon sx={{ color: 'white' }}>
+                            <MenuBookIcon />
+                          </ListItemIcon>
+                          <ListItemText
+                            primary={`${page.Sura_No} - Page - ${s}`}
+                          />
+                        </ListItemButton>
+                      </ListItem>
+                    </Link>
+                  ))}
+                </List>
+              </Collapse>
+              <Divider />
+            </div>
+          );
+        })}
       </List>
     </Box>
   );
