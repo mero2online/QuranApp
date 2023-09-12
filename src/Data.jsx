@@ -7,6 +7,36 @@ export const range = (start, end) =>
     .fill()
     .map((_, idx) => start + idx);
 
+export const suraDataLinks = () => {
+  const data = loadData();
+
+  let final = [];
+  data.forEach((page, idx) => {
+    const pagesPerSura =
+      page.START_PAGE === page.END_PAGE
+        ? [page.START_PAGE]
+        : range(page.START_PAGE, page.END_PAGE);
+    let sData = [];
+    pagesPerSura.forEach((s, i) => {
+      sData.push({
+        id: i,
+        pageUrl: `/${page.Sura_No}/${s}`,
+        name: `${page.Sura_No} - Page - ${s}`,
+        pageNo: s,
+      });
+    });
+    final.push({
+      id: idx,
+      suraUrl: `/${page.Sura_No}/${page.START_PAGE}`,
+      name: `${page.Sura_No} - ${page.Sura_Name_ENG} - ${page.Sura_Name_ARA}`,
+      pagesPerSuraData: sData,
+      suraNo: page.Sura_No,
+    });
+  });
+
+  return final;
+};
+
 export const chunks = (array, chunkSize) => {
   let chunks = [];
 
@@ -16,6 +46,7 @@ export const chunks = (array, chunkSize) => {
 
   return chunks;
 };
+
 export const modifyUrl = (title, url) => {
   if (typeof window.history.pushState != 'undefined') {
     var obj = {
