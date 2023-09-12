@@ -10,10 +10,12 @@ const Ranges = () => {
   const [rangeIndex, setRangeIndex] = useState(0);
   return (
     <div>
-      <Link to='/'>Home</Link>
+      <Link to='/'>
+        <button>Home</button>
+      </Link>
       <div>
         <button
-        disabled={rangeIndex === myRanges.length-1}
+          disabled={rangeIndex === myRanges.length - 1}
           onClick={() => {
             setRangeIndex(rangeIndex + 1);
           }}

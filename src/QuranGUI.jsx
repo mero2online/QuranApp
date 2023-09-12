@@ -32,7 +32,9 @@ const QuranGUI = () => {
 
   return (
     <>
-      <Link to='/'>Home</Link>
+      <Link to='/'>
+        <button>Home</button>
+      </Link>
       <DrawerCustomized Data={data} pagesPerSura={subOptions} />
       <div>{count}</div>
       <PageSwiper

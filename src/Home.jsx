@@ -17,10 +17,14 @@ const Home = () => {
     <div>
       <div>Quran App</div>
       <div>
-        <Link to='/all'>All Pages</Link>
+        <Link to='/all'>
+          <button>All Pages</button>
+        </Link>
       </div>
       <div>
-        <Link to='/ranges'>Ranges</Link>
+        <Link to='/ranges'>
+          <button>Ranges</button>
+        </Link>
       </div>
       <List>
         {data.map((page, index) => (
