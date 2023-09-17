@@ -17,13 +17,12 @@ import {
 
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
 
-const DrawerCustomized = ({ Data, pagesPerSura }) => {
+const DrawerCustomized = ({ Data }) => {
   const [state, setState] = useState(false);
   const [openCollapse, setOpenCollapse] = useState({});
+  const [suraIndex, setSuraIndex] = useState();
   const refs = useRef([]);
-  let { SuraNo } = useParams();
 
   useEffect(() => {
     let myColl = {};
@@ -32,16 +31,26 @@ const DrawerCustomized = ({ Data, pagesPerSura }) => {
     });
     setOpenCollapse(myColl);
   }, [Data]);
+
+  let pathName = String(window.location.pathname).split('/');
+  let PageNo = pathName[pathName.length - 1];
+  const SuraNumber = Data.filter((d) => {
+    if (d.pagesPerSura.includes(Number(PageNo))) return d;
+  });
+  useEffect(() => {
+    if (SuraNumber === suraIndex) setSuraIndex(SuraNumber[0].id);
+  }, [SuraNumber, suraIndex]);
+
   useEffect(() => {
     if (state) {
       setTimeout(() => {
-        refs.current[SuraNo - 1]?.scrollIntoView({
+        refs.current[suraIndex]?.scrollIntoView({
           behavior: 'smooth',
           block: 'center',
         });
       }, 1000);
     }
-  });
+  }, [state, suraIndex]);
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -57,17 +66,16 @@ const DrawerCustomized = ({ Data, pagesPerSura }) => {
     <Box
       sx={{ width: 250 }}
       role='presentation'
-      // onClick={toggleDrawer(false)}
-      // onKeyDown={toggleDrawer(false)}
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
     >
       <List>
         {Data.map((page, index) => {
-          const activeIndexClass =
-            Number(SuraNo) - 1 === index ? 'activeIndex' : '';
+          const activeIndexClass = suraIndex === index ? 'activeIndex' : '';
           return (
             <div key={index}>
               <Link
-                to={`/${page.Sura_No}/${page.START_PAGE}`}
+                to={page.suraUrl}
                 style={{ textDecoration: 'none', color: 'white' }}
                 ref={(element) => {
                   refs.current[index] = element;
@@ -85,24 +93,23 @@ const DrawerCustomized = ({ Data, pagesPerSura }) => {
                       }
                     });
                     setOpenCollapse(myColl);
+                    setSuraIndex(index);
                   }}
                 >
                   <ListItemButton className={activeIndexClass}>
                     <ListItemIcon sx={{ color: 'white' }}>
                       <LibraryBooksIcon />
                     </ListItemIcon>
-                    <ListItemText
-                      primary={`${page.Sura_No} - ${page.Sura_Name_ENG} - ${page.Sura_Name_ARA}`}
-                    />
+                    <ListItemText primary={page.name} />
                   </ListItemButton>
                 </ListItem>
               </Link>
               <Collapse in={openCollapse[index]} timeout='auto' unmountOnExit>
                 <List>
-                  {pagesPerSura.map((s, idx) => (
+                  {Data[index].pagesPerSuraData.map((s, idx) => (
                     <Link
                       key={idx}
-                      to={`/${page.Sura_No}/${s}`}
+                      to={s.pageUrl}
                       style={{ textDecoration: 'none', color: 'white' }}
                     >
                       <ListItem disablePadding>
@@ -110,9 +117,7 @@ const DrawerCustomized = ({ Data, pagesPerSura }) => {
                           <ListItemIcon sx={{ color: 'white' }}>
                             <MenuBookIcon />
                           </ListItemIcon>
-                          <ListItemText
-                            primary={`${page.Sura_No} - Page - ${s}`}
-                          />
+                          <ListItemText primary={s.name} />
                         </ListItemButton>
                       </ListItem>
                     </Link>
@@ -156,6 +161,5 @@ const DrawerCustomized = ({ Data, pagesPerSura }) => {
 };
 DrawerCustomized.propTypes = {
   Data: PropTypes.array.isRequired,
-  pagesPerSura: PropTypes.array.isRequired,
 };
 export default DrawerCustomized;

@@ -20,16 +20,17 @@ export const suraDataLinks = () => {
     pagesPerSura.forEach((s, i) => {
       sData.push({
         id: i,
-        pageUrl: `/${page.Sura_No}/${s}`,
+        pageUrl: `/${s}`,
         name: `${page.Sura_No} - Page - ${s}`,
         pageNo: s,
       });
     });
     final.push({
       id: idx,
-      suraUrl: `/${page.Sura_No}/${page.START_PAGE}`,
+      suraUrl: `/${page.START_PAGE}`,
       name: `${page.Sura_No} - ${page.Sura_Name_ENG} - ${page.Sura_Name_ARA}`,
       pagesPerSuraData: sData,
+      pagesPerSura: pagesPerSura,
       suraNo: page.Sura_No,
     });
   });

@@ -32,7 +32,7 @@ export const PageSwiper = ({ pageIdx, ranges, setCount }) => {
     swiperElRef.current.addEventListener('slidechange', (e) => {
       if (e.detail[0].activeIndex) {
         let pathName = String(window.location.pathname).split('/');
-        pathName[3] = ranges[e.detail[0].activeIndex];
+        pathName[2] = ranges[e.detail[0].activeIndex];
         let newPath = pathName.join('/');
         setCount(ranges[e.detail[0].activeIndex])
         modifyUrl(location.pathname, newPath);

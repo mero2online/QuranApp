@@ -12,7 +12,7 @@ function App() {
         <Route path='/' element={<Home />}></Route>
         <Route path='/all' element={<All />}></Route>
         <Route path='/ranges' element={<Ranges />}></Route>
-        <Route path='/:SuraNo/:PageNo' element={<QuranGUI />}></Route>
+        <Route path='/:PageNo' element={<QuranGUI />}></Route>
       </Routes>
     </>
   );

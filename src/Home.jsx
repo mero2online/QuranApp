@@ -9,8 +9,8 @@ import {
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import { Link } from 'react-router-dom';
 
-import { loadData } from './Data';
-const data = loadData();
+import { suraDataLinks } from './Data';
+const data = suraDataLinks();
 
 const Home = () => {
   return (
@@ -30,7 +30,7 @@ const Home = () => {
         {data.map((page, index) => (
           <div key={index}>
             <Link
-              to={`/${page.Sura_No}/${page.START_PAGE}`}
+              to={page.suraUrl}
               style={{ textDecoration: 'none', color: 'white' }}
             >
               <ListItem disablePadding>
@@ -39,7 +39,7 @@ const Home = () => {
                     <LibraryBooksIcon />
                   </ListItemIcon>
                   <ListItemText
-                    primary={`${page.Sura_No} - ${page.Sura_Name_ENG} - ${page.Sura_Name_ARA}`}
+                    primary={page.name}
                   />
                 </ListItemButton>
               </ListItem>
