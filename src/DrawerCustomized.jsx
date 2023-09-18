@@ -17,6 +17,7 @@ import {
 
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
+import { getSuraNumberFromURL } from './Data';
 
 const DrawerCustomized = ({ Data }) => {
   const [state, setState] = useState(false);
@@ -30,16 +31,10 @@ const DrawerCustomized = ({ Data }) => {
       myColl[idx] = false;
     });
     setOpenCollapse(myColl);
-  }, [Data]);
 
-  let pathName = String(window.location.pathname).split('/');
-  let PageNo = pathName[pathName.length - 1];
-  const SuraNumber = Data.filter((d) => {
-    if (d.pagesPerSura.includes(Number(PageNo))) return d;
-  });
-  useEffect(() => {
-    if (SuraNumber === suraIndex) setSuraIndex(SuraNumber[0].id);
-  }, [SuraNumber, suraIndex]);
+    const SuraNumber = getSuraNumberFromURL(Data);
+    setSuraIndex(SuraNumber[0].id);
+  }, [Data]);
 
   useEffect(() => {
     if (state) {
@@ -61,6 +56,12 @@ const DrawerCustomized = ({ Data }) => {
     }
 
     setState(open);
+    const SuraNumber = getSuraNumberFromURL(Data);
+    if (SuraNumber.length === 1) {
+      setSuraIndex(SuraNumber[0].id);
+    } else {
+      setSuraIndex(SuraNumber[SuraNumber.length - 1].id);
+    }
   };
   const list = () => (
     <Box

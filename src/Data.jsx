@@ -57,3 +57,12 @@ export const modifyUrl = (title, url) => {
     window.history.pushState(obj, obj.Title, obj.Url);
   }
 };
+
+export const getSuraNumberFromURL = (Data) => {
+  let pathName = String(window.location.pathname).split('/');
+  let PageNo = pathName[pathName.length - 1];
+  const SuraNumber = Data.filter((d) => {
+    if (d.pagesPerSura.includes(Number(PageNo))) return d;
+  });
+  return SuraNumber;
+};
