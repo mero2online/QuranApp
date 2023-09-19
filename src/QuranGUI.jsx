@@ -1,23 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { range, suraDataLinks } from './Data';
 import { PageSwiper } from './PageSwiper';
 import DrawerCustomized from './DrawerCustomized';
 const d = suraDataLinks();
+import { useDispatch, useSelector } from 'react-redux';
+import { changePageIndex } from './features/app/appSlice';
 
 const QuranGUI = () => {
+  const dispatch = useDispatch();
+  const pageIndex = useSelector((state) => state.app.pageIndex);
   let { PageNo } = useParams();
-  const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (PageNo) {
-      handelOnSelectionChangeSub(PageNo);
+      dispatch(changePageIndex(Number(PageNo)));
     }
-  }, [PageNo]);
-
-  const handelOnSelectionChangeSub = (page) => {
-    setCount(Number(page));
-  };
+  }, [PageNo, dispatch]);
 
   return (
     <>
@@ -26,13 +25,9 @@ const QuranGUI = () => {
       </Link>
       <DrawerCustomized Data={d} />
       <div>
-        <div>Current Page {count}</div>
+        <div>Current Page {pageIndex}</div>
       </div>
-      <PageSwiper
-        pageIdx={count}
-        ranges={range(1, 604)}
-        setCount={setCount}
-      ></PageSwiper>
+      <PageSwiper ranges={range(1, 604)}></PageSwiper>
     </>
   );
 };

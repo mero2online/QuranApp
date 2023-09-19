@@ -2,11 +2,15 @@ import { useRef, useEffect } from 'react';
 import { register } from 'swiper/element/bundle';
 import PropTypes from 'prop-types';
 import { modifyUrl } from './Data';
+import { useDispatch, useSelector } from 'react-redux';
+import { changePageIndex } from './features/app/appSlice';
 
 register();
 
-export const PageSwiper = ({ pageIdx, ranges, setCount }) => {
+export const PageSwiper = ({ ranges }) => {
   const swiperElRef = useRef(null);
+  const dispatch = useDispatch();
+  const pageIndex = useSelector((state) => state.app.pageIndex);
 
   useEffect(() => {
     const swiperParams = {
@@ -34,16 +38,17 @@ export const PageSwiper = ({ pageIdx, ranges, setCount }) => {
         let pathName = String(window.location.pathname).split('/');
         pathName[2] = ranges[e.detail[0].activeIndex];
         let newPath = pathName.join('/');
-        setCount(ranges[e.detail[0].activeIndex]);
-        if (location.pathname !== newPath)
+        if (location.pathname !== newPath) {
+          dispatch(changePageIndex(ranges[e.detail[0].activeIndex]));
           modifyUrl(location.pathname, newPath);
+        }
       }
     });
 
-    if (swiperElRef.current && pageIdx) {
-      swiperElRef.current.swiper.slideTo(ranges.indexOf(pageIdx));
+    if (swiperElRef.current && pageIndex) {
+      swiperElRef.current.swiper.slideTo(ranges.indexOf(pageIndex));
     }
-  }, [ranges, pageIdx, setCount]);
+  }, [ranges, dispatch, pageIndex]);
 
   return (
     <swiper-container init='false' ref={swiperElRef}>
@@ -68,7 +73,5 @@ export const PageSwiper = ({ pageIdx, ranges, setCount }) => {
 };
 
 PageSwiper.propTypes = {
-  pageIdx: PropTypes.number,
   ranges: PropTypes.array.isRequired,
-  setCount: PropTypes.func.isRequired,
 };
