@@ -4,797 +4,1025 @@
         "Sura_Name_ARA": " سورة الفاتحة",
         "Sura_Name_ENG": "Surat - Al-Fatiha",
         "START_PAGE": 1,
-        "END_PAGE": 1
+        "END_PAGE": 1,
+        "START_PAGE_MOD": 1,
+        "END_PAGE_MOD": 1
     },
     {
         "Sura_No": 2,
         "Sura_Name_ARA": " سورة البقرة",
         "Sura_Name_ENG": "Surat - Al-Baqara",
         "START_PAGE": 2,
-        "END_PAGE": 49
+        "END_PAGE": 49,
+        "START_PAGE_MOD": 2,
+        "END_PAGE_MOD": 49
     },
     {
         "Sura_No": 3,
         "Sura_Name_ARA": " سورة آل عمران",
         "Sura_Name_ENG": "Surat - Aal-e-Imran",
         "START_PAGE": 50,
-        "END_PAGE": 76
+        "END_PAGE": 76,
+        "START_PAGE_MOD": 50,
+        "END_PAGE_MOD": 76
     },
     {
         "Sura_No": 4,
         "Sura_Name_ARA": " سورة النساء",
         "Sura_Name_ENG": "Surat - An-Nisa",
         "START_PAGE": 77,
-        "END_PAGE": 106
+        "END_PAGE": 106,
+        "START_PAGE_MOD": 77,
+        "END_PAGE_MOD": 105
     },
     {
         "Sura_No": 5,
         "Sura_Name_ARA": " سورة المائدة",
         "Sura_Name_ENG": "Surat - Al-Maeda",
         "START_PAGE": 106,
-        "END_PAGE": 127
+        "END_PAGE": 127,
+        "START_PAGE_MOD": 106,
+        "END_PAGE_MOD": 127
     },
     {
         "Sura_No": 6,
         "Sura_Name_ARA": " سورة الأنعام",
         "Sura_Name_ENG": "Surat - Al-Anaam",
         "START_PAGE": 128,
-        "END_PAGE": 150
+        "END_PAGE": 150,
+        "START_PAGE_MOD": 128,
+        "END_PAGE_MOD": 150
     },
     {
         "Sura_No": 7,
         "Sura_Name_ARA": " سورة الأعراف",
         "Sura_Name_ENG": "Surat - Al-Araf",
         "START_PAGE": 151,
-        "END_PAGE": 176
+        "END_PAGE": 176,
+        "START_PAGE_MOD": 151,
+        "END_PAGE_MOD": 176
     },
     {
         "Sura_No": 8,
         "Sura_Name_ARA": " سورة الأنفال",
         "Sura_Name_ENG": "Surat - Al-Anfal",
         "START_PAGE": 177,
-        "END_PAGE": 186
+        "END_PAGE": 186,
+        "START_PAGE_MOD": 177,
+        "END_PAGE_MOD": 186
     },
     {
         "Sura_No": 9,
         "Sura_Name_ARA": " سورة التوبة",
         "Sura_Name_ENG": "Surat - At-Tawba",
         "START_PAGE": 187,
-        "END_PAGE": 207
+        "END_PAGE": 207,
+        "START_PAGE_MOD": 187,
+        "END_PAGE_MOD": 207
     },
     {
         "Sura_No": 10,
         "Sura_Name_ARA": " سورة يونس",
         "Sura_Name_ENG": "Surat - Yunus",
         "START_PAGE": 208,
-        "END_PAGE": 221
+        "END_PAGE": 221,
+        "START_PAGE_MOD": 208,
+        "END_PAGE_MOD": 220
     },
     {
         "Sura_No": 11,
         "Sura_Name_ARA": " سورة هود",
         "Sura_Name_ENG": "Surat - Hud",
         "START_PAGE": 221,
-        "END_PAGE": 235
+        "END_PAGE": 235,
+        "START_PAGE_MOD": 221,
+        "END_PAGE_MOD": 234
     },
     {
         "Sura_No": 12,
         "Sura_Name_ARA": " سورة يوسف",
         "Sura_Name_ENG": "Surat - Yusuf",
         "START_PAGE": 235,
-        "END_PAGE": 248
+        "END_PAGE": 248,
+        "START_PAGE_MOD": 235,
+        "END_PAGE_MOD": 248
     },
     {
         "Sura_No": 13,
         "Sura_Name_ARA": " سورة الرعد",
         "Sura_Name_ENG": "Surat - Ar-Rad",
         "START_PAGE": 249,
-        "END_PAGE": 255
+        "END_PAGE": 255,
+        "START_PAGE_MOD": 249,
+        "END_PAGE_MOD": 254
     },
     {
         "Sura_No": 14,
         "Sura_Name_ARA": " سورة إبراهيم",
         "Sura_Name_ENG": "Surat - Ibrahim",
         "START_PAGE": 255,
-        "END_PAGE": 261
+        "END_PAGE": 261,
+        "START_PAGE_MOD": 255,
+        "END_PAGE_MOD": 261
     },
     {
         "Sura_No": 15,
         "Sura_Name_ARA": " سورة الحجر",
         "Sura_Name_ENG": "Surat - Al-Hijr",
         "START_PAGE": 262,
-        "END_PAGE": 267
+        "END_PAGE": 267,
+        "START_PAGE_MOD": 262,
+        "END_PAGE_MOD": 266
     },
     {
         "Sura_No": 16,
         "Sura_Name_ARA": " سورة النحل",
         "Sura_Name_ENG": "Surat - An-Nahl",
         "START_PAGE": 267,
-        "END_PAGE": 281
+        "END_PAGE": 281,
+        "START_PAGE_MOD": 267,
+        "END_PAGE_MOD": 281
     },
     {
         "Sura_No": 17,
         "Sura_Name_ARA": " سورة الإسراء",
         "Sura_Name_ENG": "Surat - Al-Isra",
         "START_PAGE": 282,
-        "END_PAGE": 293
+        "END_PAGE": 293,
+        "START_PAGE_MOD": 282,
+        "END_PAGE_MOD": 292
     },
     {
         "Sura_No": 18,
         "Sura_Name_ARA": " سورة الكهف",
         "Sura_Name_ENG": "Surat - Al-Kahf",
         "START_PAGE": 293,
-        "END_PAGE": 304
+        "END_PAGE": 304,
+        "START_PAGE_MOD": 293,
+        "END_PAGE_MOD": 304
     },
     {
         "Sura_No": 19,
         "Sura_Name_ARA": " سورة مريم",
         "Sura_Name_ENG": "Surat - Maryam",
         "START_PAGE": 305,
-        "END_PAGE": 312
+        "END_PAGE": 312,
+        "START_PAGE_MOD": 305,
+        "END_PAGE_MOD": 311
     },
     {
         "Sura_No": 20,
         "Sura_Name_ARA": " سورة طه",
         "Sura_Name_ENG": "Surat - Taha",
         "START_PAGE": 312,
-        "END_PAGE": 321
+        "END_PAGE": 321,
+        "START_PAGE_MOD": 312,
+        "END_PAGE_MOD": 321
     },
     {
         "Sura_No": 21,
         "Sura_Name_ARA": " سورة الأنبياء",
         "Sura_Name_ENG": "Surat - Al-Anbiya",
         "START_PAGE": 322,
-        "END_PAGE": 331
+        "END_PAGE": 331,
+        "START_PAGE_MOD": 322,
+        "END_PAGE_MOD": 331
     },
     {
         "Sura_No": 22,
         "Sura_Name_ARA": " سورة الحج",
         "Sura_Name_ENG": "Surat - Al-Hajj",
         "START_PAGE": 332,
-        "END_PAGE": 341
+        "END_PAGE": 341,
+        "START_PAGE_MOD": 332,
+        "END_PAGE_MOD": 341
     },
     {
         "Sura_No": 23,
         "Sura_Name_ARA": " سورة المؤمنون",
         "Sura_Name_ENG": "Surat - Al-Mumenoon",
         "START_PAGE": 342,
-        "END_PAGE": 349
+        "END_PAGE": 349,
+        "START_PAGE_MOD": 342,
+        "END_PAGE_MOD": 349
     },
     {
         "Sura_No": 24,
         "Sura_Name_ARA": " سورة النور",
         "Sura_Name_ENG": "Surat - An-Noor",
         "START_PAGE": 350,
-        "END_PAGE": 359
+        "END_PAGE": 359,
+        "START_PAGE_MOD": 350,
+        "END_PAGE_MOD": 358
     },
     {
         "Sura_No": 25,
         "Sura_Name_ARA": " سورة الفرقان",
         "Sura_Name_ENG": "Surat - Al-Furqan",
         "START_PAGE": 359,
-        "END_PAGE": 366
+        "END_PAGE": 366,
+        "START_PAGE_MOD": 359,
+        "END_PAGE_MOD": 366
     },
     {
         "Sura_No": 26,
         "Sura_Name_ARA": " سورة الشعراء",
         "Sura_Name_ENG": "Surat - Ash-Shuara",
         "START_PAGE": 367,
-        "END_PAGE": 376
+        "END_PAGE": 376,
+        "START_PAGE_MOD": 367,
+        "END_PAGE_MOD": 376
     },
     {
         "Sura_No": 27,
         "Sura_Name_ARA": " سورة النمل",
         "Sura_Name_ENG": "Surat - An-Naml",
         "START_PAGE": 377,
-        "END_PAGE": 385
+        "END_PAGE": 385,
+        "START_PAGE_MOD": 377,
+        "END_PAGE_MOD": 384
     },
     {
         "Sura_No": 28,
         "Sura_Name_ARA": " سورة القصص",
         "Sura_Name_ENG": "Surat - Al-Qasas",
         "START_PAGE": 385,
-        "END_PAGE": 396
+        "END_PAGE": 396,
+        "START_PAGE_MOD": 385,
+        "END_PAGE_MOD": 395
     },
     {
         "Sura_No": 29,
         "Sura_Name_ARA": " سورة العنكبوت",
         "Sura_Name_ENG": "Surat - Al-Ankaboot",
         "START_PAGE": 396,
-        "END_PAGE": 404
+        "END_PAGE": 404,
+        "START_PAGE_MOD": 396,
+        "END_PAGE_MOD": 403
     },
     {
         "Sura_No": 30,
         "Sura_Name_ARA": " سورة الروم",
         "Sura_Name_ENG": "Surat - Ar-Room",
         "START_PAGE": 404,
-        "END_PAGE": 410
+        "END_PAGE": 410,
+        "START_PAGE_MOD": 404,
+        "END_PAGE_MOD": 410
     },
     {
         "Sura_No": 31,
         "Sura_Name_ARA": " سورة لقمان",
         "Sura_Name_ENG": "Surat - Luqman",
         "START_PAGE": 411,
-        "END_PAGE": 414
+        "END_PAGE": 414,
+        "START_PAGE_MOD": 411,
+        "END_PAGE_MOD": 414
     },
     {
         "Sura_No": 32,
         "Sura_Name_ARA": " سورة السجدة",
         "Sura_Name_ENG": "Surat - As-Sajda",
         "START_PAGE": 415,
-        "END_PAGE": 417
+        "END_PAGE": 417,
+        "START_PAGE_MOD": 415,
+        "END_PAGE_MOD": 417
     },
     {
         "Sura_No": 33,
         "Sura_Name_ARA": " سورة الأحزاب",
         "Sura_Name_ENG": "Surat - Al-Ahzab",
         "START_PAGE": 418,
-        "END_PAGE": 427
+        "END_PAGE": 427,
+        "START_PAGE_MOD": 418,
+        "END_PAGE_MOD": 427
     },
     {
         "Sura_No": 34,
         "Sura_Name_ARA": " سورة سبأ",
         "Sura_Name_ENG": "Surat - Saba",
         "START_PAGE": 428,
-        "END_PAGE": 434
+        "END_PAGE": 434,
+        "START_PAGE_MOD": 428,
+        "END_PAGE_MOD": 433
     },
     {
         "Sura_No": 35,
         "Sura_Name_ARA": " سورة فاطر",
         "Sura_Name_ENG": "Surat - Fatir",
         "START_PAGE": 434,
-        "END_PAGE": 440
+        "END_PAGE": 440,
+        "START_PAGE_MOD": 434,
+        "END_PAGE_MOD": 439
     },
     {
         "Sura_No": 36,
         "Sura_Name_ARA": " سورة يس",
         "Sura_Name_ENG": "Surat - Ya-seen",
         "START_PAGE": 440,
-        "END_PAGE": 445
+        "END_PAGE": 445,
+        "START_PAGE_MOD": 440,
+        "END_PAGE_MOD": 445
     },
     {
         "Sura_No": 37,
         "Sura_Name_ARA": " سورة الصافات",
         "Sura_Name_ENG": "Surat - As-Saaffat",
         "START_PAGE": 446,
-        "END_PAGE": 452
+        "END_PAGE": 452,
+        "START_PAGE_MOD": 446,
+        "END_PAGE_MOD": 452
     },
     {
         "Sura_No": 38,
         "Sura_Name_ARA": " سورة ص",
         "Sura_Name_ENG": "Surat - Sad",
         "START_PAGE": 453,
-        "END_PAGE": 458
+        "END_PAGE": 458,
+        "START_PAGE_MOD": 453,
+        "END_PAGE_MOD": 457
     },
     {
         "Sura_No": 39,
         "Sura_Name_ARA": " سورة الزمر",
         "Sura_Name_ENG": "Surat - Az-Zumar",
         "START_PAGE": 458,
-        "END_PAGE": 467
+        "END_PAGE": 467,
+        "START_PAGE_MOD": 458,
+        "END_PAGE_MOD": 466
     },
     {
         "Sura_No": 40,
         "Sura_Name_ARA": " سورة غافر",
         "Sura_Name_ENG": "Surat - Ghafir",
         "START_PAGE": 467,
-        "END_PAGE": 476
+        "END_PAGE": 476,
+        "START_PAGE_MOD": 467,
+        "END_PAGE_MOD": 476
     },
     {
         "Sura_No": 41,
         "Sura_Name_ARA": " سورة فصلت",
         "Sura_Name_ENG": "Surat - Fussilat",
         "START_PAGE": 477,
-        "END_PAGE": 482
+        "END_PAGE": 482,
+        "START_PAGE_MOD": 477,
+        "END_PAGE_MOD": 482
     },
     {
         "Sura_No": 42,
         "Sura_Name_ARA": " سورة الشورى",
         "Sura_Name_ENG": "Surat - Ash-Shura",
         "START_PAGE": 483,
-        "END_PAGE": 489
+        "END_PAGE": 489,
+        "START_PAGE_MOD": 483,
+        "END_PAGE_MOD": 488
     },
     {
         "Sura_No": 43,
         "Sura_Name_ARA": " سورة الزخرف",
         "Sura_Name_ENG": "Surat - Az-Zukhruf",
         "START_PAGE": 489,
-        "END_PAGE": 495
+        "END_PAGE": 495,
+        "START_PAGE_MOD": 489,
+        "END_PAGE_MOD": 495
     },
     {
         "Sura_No": 44,
         "Sura_Name_ARA": " سورة الدخان",
         "Sura_Name_ENG": "Surat - Ad-Dukhan",
         "START_PAGE": 496,
-        "END_PAGE": 498
+        "END_PAGE": 498,
+        "START_PAGE_MOD": 496,
+        "END_PAGE_MOD": 498
     },
     {
         "Sura_No": 45,
         "Sura_Name_ARA": " سورة الجاثية",
         "Sura_Name_ENG": "Surat - Al-Jathiya",
         "START_PAGE": 499,
-        "END_PAGE": 502
+        "END_PAGE": 502,
+        "START_PAGE_MOD": 499,
+        "END_PAGE_MOD": 501
     },
     {
         "Sura_No": 46,
         "Sura_Name_ARA": " سورة الأحقاف",
         "Sura_Name_ENG": "Surat - Al-Ahqaf",
         "START_PAGE": 502,
-        "END_PAGE": 506
+        "END_PAGE": 506,
+        "START_PAGE_MOD": 502,
+        "END_PAGE_MOD": 506
     },
     {
         "Sura_No": 47,
         "Sura_Name_ARA": " سورة محمد",
         "Sura_Name_ENG": "Surat - Muhammad",
         "START_PAGE": 507,
-        "END_PAGE": 510
+        "END_PAGE": 510,
+        "START_PAGE_MOD": 507,
+        "END_PAGE_MOD": 510
     },
     {
         "Sura_No": 48,
         "Sura_Name_ARA": " سورة الفتح",
         "Sura_Name_ENG": "Surat - Al-Fath",
         "START_PAGE": 511,
-        "END_PAGE": 515
+        "END_PAGE": 515,
+        "START_PAGE_MOD": 511,
+        "END_PAGE_MOD": 514
     },
     {
         "Sura_No": 49,
         "Sura_Name_ARA": " سورة الحجرات",
         "Sura_Name_ENG": "Surat - Al-Hujraat",
         "START_PAGE": 515,
-        "END_PAGE": 517
+        "END_PAGE": 517,
+        "START_PAGE_MOD": 515,
+        "END_PAGE_MOD": 517
     },
     {
         "Sura_No": 50,
         "Sura_Name_ARA": " سورة ق",
         "Sura_Name_ENG": "Surat - Qaf",
         "START_PAGE": 518,
-        "END_PAGE": 520
+        "END_PAGE": 520,
+        "START_PAGE_MOD": 518,
+        "END_PAGE_MOD": 519
     },
     {
         "Sura_No": 51,
         "Sura_Name_ARA": " سورة الذاريات",
         "Sura_Name_ENG": "Surat - Adh-Dhariyat",
         "START_PAGE": 520,
-        "END_PAGE": 523
+        "END_PAGE": 523,
+        "START_PAGE_MOD": 520,
+        "END_PAGE_MOD": 522
     },
     {
         "Sura_No": 52,
         "Sura_Name_ARA": " سورة الطور",
         "Sura_Name_ENG": "Surat - At-Tur",
         "START_PAGE": 523,
-        "END_PAGE": 525
+        "END_PAGE": 525,
+        "START_PAGE_MOD": 523,
+        "END_PAGE_MOD": 525
     },
     {
         "Sura_No": 53,
         "Sura_Name_ARA": " سورة النجم",
         "Sura_Name_ENG": "Surat - An-Najm",
         "START_PAGE": 526,
-        "END_PAGE": 528
+        "END_PAGE": 528,
+        "START_PAGE_MOD": 526,
+        "END_PAGE_MOD": 527
     },
     {
         "Sura_No": 54,
         "Sura_Name_ARA": " سورة القمر",
         "Sura_Name_ENG": "Surat - Al-Qamar",
         "START_PAGE": 528,
-        "END_PAGE": 531
+        "END_PAGE": 531,
+        "START_PAGE_MOD": 528,
+        "END_PAGE_MOD": 530
     },
     {
         "Sura_No": 55,
         "Sura_Name_ARA": " سورة الرحمن",
         "Sura_Name_ENG": "Surat - Ar-Rahman",
         "START_PAGE": 531,
-        "END_PAGE": 534
+        "END_PAGE": 534,
+        "START_PAGE_MOD": 531,
+        "END_PAGE_MOD": 533
     },
     {
         "Sura_No": 56,
         "Sura_Name_ARA": " سورة الواقعة",
         "Sura_Name_ENG": "Surat - Al-Waqia",
         "START_PAGE": 534,
-        "END_PAGE": 537
+        "END_PAGE": 537,
+        "START_PAGE_MOD": 534,
+        "END_PAGE_MOD": 536
     },
     {
         "Sura_No": 57,
         "Sura_Name_ARA": " سورة الحديد",
         "Sura_Name_ENG": "Surat - Al-Hadid",
         "START_PAGE": 537,
-        "END_PAGE": 541
+        "END_PAGE": 541,
+        "START_PAGE_MOD": 537,
+        "END_PAGE_MOD": 541
     },
     {
         "Sura_No": 58,
         "Sura_Name_ARA": " سورة المجادلة",
         "Sura_Name_ENG": "Surat - Al-Mujadala",
         "START_PAGE": 542,
-        "END_PAGE": 545
+        "END_PAGE": 545,
+        "START_PAGE_MOD": 542,
+        "END_PAGE_MOD": 544
     },
     {
         "Sura_No": 59,
         "Sura_Name_ARA": " سورة الحشر",
         "Sura_Name_ENG": "Surat - Al-Hashr",
         "START_PAGE": 545,
-        "END_PAGE": 548
+        "END_PAGE": 548,
+        "START_PAGE_MOD": 545,
+        "END_PAGE_MOD": 548
     },
     {
         "Sura_No": 60,
         "Sura_Name_ARA": " سورة الممتحنة",
         "Sura_Name_ENG": "Surat - Al-Mumtahana",
         "START_PAGE": 549,
-        "END_PAGE": 551
+        "END_PAGE": 551,
+        "START_PAGE_MOD": 549,
+        "END_PAGE_MOD": 550
     },
     {
         "Sura_No": 61,
         "Sura_Name_ARA": " سورة الصف",
         "Sura_Name_ENG": "Surat - As-Saff",
         "START_PAGE": 551,
-        "END_PAGE": 552
+        "END_PAGE": 552,
+        "START_PAGE_MOD": 551,
+        "END_PAGE_MOD": 552
     },
     {
         "Sura_No": 62,
         "Sura_Name_ARA": " سورة الجمعة",
         "Sura_Name_ENG": "Surat - Al-Jumua",
         "START_PAGE": 553,
-        "END_PAGE": 554
+        "END_PAGE": 554,
+        "START_PAGE_MOD": 553,
+        "END_PAGE_MOD": 553
     },
     {
         "Sura_No": 63,
         "Sura_Name_ARA": " سورة المنافقون",
         "Sura_Name_ENG": "Surat - Al-Munafiqoon",
         "START_PAGE": 554,
-        "END_PAGE": 555
+        "END_PAGE": 555,
+        "START_PAGE_MOD": 554,
+        "END_PAGE_MOD": 555
     },
     {
         "Sura_No": 64,
         "Sura_Name_ARA": " سورة التغابن",
         "Sura_Name_ENG": "Surat - At-Taghabun",
         "START_PAGE": 556,
-        "END_PAGE": 557
+        "END_PAGE": 557,
+        "START_PAGE_MOD": 556,
+        "END_PAGE_MOD": 557
     },
     {
         "Sura_No": 65,
         "Sura_Name_ARA": " سورة الطلاق",
         "Sura_Name_ENG": "Surat - At-Talaq",
         "START_PAGE": 558,
-        "END_PAGE": 559
+        "END_PAGE": 559,
+        "START_PAGE_MOD": 558,
+        "END_PAGE_MOD": 559
     },
     {
         "Sura_No": 66,
         "Sura_Name_ARA": " سورة التحريم",
         "Sura_Name_ENG": "Surat - At-Tahrim",
         "START_PAGE": 560,
-        "END_PAGE": 561
+        "END_PAGE": 561,
+        "START_PAGE_MOD": 560,
+        "END_PAGE_MOD": 561
     },
     {
         "Sura_No": 67,
         "Sura_Name_ARA": " سورة الملك",
         "Sura_Name_ENG": "Surat - Al-Mulk",
         "START_PAGE": 562,
-        "END_PAGE": 564
+        "END_PAGE": 564,
+        "START_PAGE_MOD": 562,
+        "END_PAGE_MOD": 563
     },
     {
         "Sura_No": 68,
         "Sura_Name_ARA": " سورة القلم",
         "Sura_Name_ENG": "Surat - Al-Qalam",
         "START_PAGE": 564,
-        "END_PAGE": 566
+        "END_PAGE": 566,
+        "START_PAGE_MOD": 564,
+        "END_PAGE_MOD": 565
     },
     {
         "Sura_No": 69,
         "Sura_Name_ARA": " سورة الحاقة",
         "Sura_Name_ENG": "Surat - Al-Haaqqa",
         "START_PAGE": 566,
-        "END_PAGE": 568
+        "END_PAGE": 568,
+        "START_PAGE_MOD": 566,
+        "END_PAGE_MOD": 567
     },
     {
         "Sura_No": 70,
         "Sura_Name_ARA": " سورة المعارج",
         "Sura_Name_ENG": "Surat - Al-Maarij",
         "START_PAGE": 568,
-        "END_PAGE": 570
+        "END_PAGE": 570,
+        "START_PAGE_MOD": 568,
+        "END_PAGE_MOD": 569
     },
     {
         "Sura_No": 71,
         "Sura_Name_ARA": " سورة نوح",
         "Sura_Name_ENG": "Surat - Nooh",
         "START_PAGE": 570,
-        "END_PAGE": 571
+        "END_PAGE": 571,
+        "START_PAGE_MOD": 570,
+        "END_PAGE_MOD": 571
     },
     {
         "Sura_No": 72,
         "Sura_Name_ARA": " سورة الجن",
         "Sura_Name_ENG": "Surat - Al-Jinn",
         "START_PAGE": 572,
-        "END_PAGE": 573
+        "END_PAGE": 573,
+        "START_PAGE_MOD": 572,
+        "END_PAGE_MOD": 573
     },
     {
         "Sura_No": 73,
         "Sura_Name_ARA": " سورة المزمل",
         "Sura_Name_ENG": "Surat - Al-Muzzammil",
         "START_PAGE": 574,
-        "END_PAGE": 575
+        "END_PAGE": 575,
+        "START_PAGE_MOD": 574,
+        "END_PAGE_MOD": 574
     },
     {
         "Sura_No": 74,
         "Sura_Name_ARA": " سورة المدثر",
         "Sura_Name_ENG": "Surat - Al-Muddaththir",
         "START_PAGE": 575,
-        "END_PAGE": 577
+        "END_PAGE": 577,
+        "START_PAGE_MOD": 575,
+        "END_PAGE_MOD": 576
     },
     {
         "Sura_No": 75,
         "Sura_Name_ARA": " سورة القيامة",
         "Sura_Name_ENG": "Surat - Al-Qiyama",
         "START_PAGE": 577,
-        "END_PAGE": 578
+        "END_PAGE": 578,
+        "START_PAGE_MOD": 577,
+        "END_PAGE_MOD": 577
     },
     {
         "Sura_No": 76,
         "Sura_Name_ARA": " سورة الإنسان",
         "Sura_Name_ENG": "Surat - Al-Insan",
         "START_PAGE": 578,
-        "END_PAGE": 580
+        "END_PAGE": 580,
+        "START_PAGE_MOD": 578,
+        "END_PAGE_MOD": 579
     },
     {
         "Sura_No": 77,
         "Sura_Name_ARA": " سورة المرسلات",
         "Sura_Name_ENG": "Surat - Al-Mursalat",
         "START_PAGE": 580,
-        "END_PAGE": 581
+        "END_PAGE": 581,
+        "START_PAGE_MOD": 580,
+        "END_PAGE_MOD": 581
     },
     {
         "Sura_No": 78,
         "Sura_Name_ARA": " سورة النبأ",
         "Sura_Name_ENG": "Surat - An-Naba",
         "START_PAGE": 582,
-        "END_PAGE": 583
+        "END_PAGE": 583,
+        "START_PAGE_MOD": 582,
+        "END_PAGE_MOD": 582
     },
     {
         "Sura_No": 79,
         "Sura_Name_ARA": " سورة النازعات",
         "Sura_Name_ENG": "Surat - An-Naziat",
         "START_PAGE": 583,
-        "END_PAGE": 584
+        "END_PAGE": 584,
+        "START_PAGE_MOD": 583,
+        "END_PAGE_MOD": 584
     },
     {
         "Sura_No": 80,
         "Sura_Name_ARA": " سورة عبس",
         "Sura_Name_ENG": "Surat - Abasa",
         "START_PAGE": 585,
-        "END_PAGE": 585
+        "END_PAGE": 585,
+        "START_PAGE_MOD": 585,
+        "END_PAGE_MOD": 585
     },
     {
         "Sura_No": 81,
         "Sura_Name_ARA": " سورة التكوير",
         "Sura_Name_ENG": "Surat - At-Takwir",
         "START_PAGE": 586,
-        "END_PAGE": 586
+        "END_PAGE": 586,
+        "START_PAGE_MOD": 586,
+        "END_PAGE_MOD": 586
     },
     {
         "Sura_No": 82,
         "Sura_Name_ARA": " سورة الانفطار",
         "Sura_Name_ENG": "Surat - Al-Infitar",
         "START_PAGE": 587,
-        "END_PAGE": 587
+        "END_PAGE": 587,
+        "START_PAGE_MOD": 587,
+        "END_PAGE_MOD": 587
     },
     {
         "Sura_No": 83,
         "Sura_Name_ARA": " سورة المطففين",
         "Sura_Name_ENG": "Surat - Al-Mutaffifin",
         "START_PAGE": 587,
-        "END_PAGE": 589
+        "END_PAGE": 589,
+        "START_PAGE_MOD": 588,
+        "END_PAGE_MOD": 588
     },
     {
         "Sura_No": 84,
         "Sura_Name_ARA": " سورة الانشقاق",
         "Sura_Name_ENG": "Surat - Al-Inshiqaq",
         "START_PAGE": 589,
-        "END_PAGE": 589
+        "END_PAGE": 589,
+        "START_PAGE_MOD": 589,
+        "END_PAGE_MOD": 589
     },
     {
         "Sura_No": 85,
         "Sura_Name_ARA": " سورة البروج",
         "Sura_Name_ENG": "Surat - Al-Burooj",
         "START_PAGE": 590,
-        "END_PAGE": 590
+        "END_PAGE": 590,
+        "START_PAGE_MOD": 590,
+        "END_PAGE_MOD": 590
     },
     {
         "Sura_No": 86,
         "Sura_Name_ARA": " سورة الطارق",
         "Sura_Name_ENG": "Surat - At-Tariq",
         "START_PAGE": 591,
-        "END_PAGE": 591
+        "END_PAGE": 591,
+        "START_PAGE_MOD": 591,
+        "END_PAGE_MOD": 591
     },
     {
         "Sura_No": 87,
         "Sura_Name_ARA": " سورة الأعلى",
         "Sura_Name_ENG": "Surat - Al-Ala",
         "START_PAGE": 591,
-        "END_PAGE": 592
+        "END_PAGE": 592,
+        "START_PAGE_MOD": 591,
+        "END_PAGE_MOD": 591
     },
     {
         "Sura_No": 88,
         "Sura_Name_ARA": " سورة الغاشية",
         "Sura_Name_ENG": "Surat - Al-Ghashiya",
         "START_PAGE": 592,
-        "END_PAGE": 592
+        "END_PAGE": 592,
+        "START_PAGE_MOD": 592,
+        "END_PAGE_MOD": 592
     },
     {
         "Sura_No": 89,
         "Sura_Name_ARA": " سورة الفجر",
         "Sura_Name_ENG": "Surat - Al-Fajr",
         "START_PAGE": 593,
-        "END_PAGE": 594
+        "END_PAGE": 594,
+        "START_PAGE_MOD": 593,
+        "END_PAGE_MOD": 593
     },
     {
         "Sura_No": 90,
         "Sura_Name_ARA": " سورة البلد",
         "Sura_Name_ENG": "Surat - Al-Balad",
         "START_PAGE": 594,
-        "END_PAGE": 594
+        "END_PAGE": 594,
+        "START_PAGE_MOD": 594,
+        "END_PAGE_MOD": 594
     },
     {
         "Sura_No": 91,
         "Sura_Name_ARA": " سورة الشمس",
         "Sura_Name_ENG": "Surat - Ash-Shams",
         "START_PAGE": 595,
-        "END_PAGE": 595
+        "END_PAGE": 595,
+        "START_PAGE_MOD": 595,
+        "END_PAGE_MOD": 595
     },
     {
         "Sura_No": 92,
         "Sura_Name_ARA": " سورة الليل",
         "Sura_Name_ENG": "Surat - Al-Layl",
         "START_PAGE": 595,
-        "END_PAGE": 596
+        "END_PAGE": 596,
+        "START_PAGE_MOD": 595,
+        "END_PAGE_MOD": 595
     },
     {
         "Sura_No": 93,
         "Sura_Name_ARA": " سورة الضحى",
         "Sura_Name_ENG": "Surat - Ad-Dhuha",
         "START_PAGE": 596,
-        "END_PAGE": 596
+        "END_PAGE": 596,
+        "START_PAGE_MOD": 596,
+        "END_PAGE_MOD": 596
     },
     {
         "Sura_No": 94,
         "Sura_Name_ARA": " سورة الشرح",
         "Sura_Name_ENG": "Surat - As-Sharh",
         "START_PAGE": 596,
-        "END_PAGE": 596
+        "END_PAGE": 596,
+        "START_PAGE_MOD": 596,
+        "END_PAGE_MOD": 596
     },
     {
         "Sura_No": 95,
         "Sura_Name_ARA": " سورة التين",
         "Sura_Name_ENG": "Surat - At-Tin",
         "START_PAGE": 597,
-        "END_PAGE": 597
+        "END_PAGE": 597,
+        "START_PAGE_MOD": 597,
+        "END_PAGE_MOD": 597
     },
     {
         "Sura_No": 96,
         "Sura_Name_ARA": " سورة العلق",
         "Sura_Name_ENG": "Surat - Al-alaq",
         "START_PAGE": 597,
-        "END_PAGE": 597
+        "END_PAGE": 597,
+        "START_PAGE_MOD": 597,
+        "END_PAGE_MOD": 597
     },
     {
         "Sura_No": 97,
         "Sura_Name_ARA": " سورة القدر",
         "Sura_Name_ENG": "Surat - Al-Qadr",
         "START_PAGE": 598,
-        "END_PAGE": 598
+        "END_PAGE": 598,
+        "START_PAGE_MOD": 598,
+        "END_PAGE_MOD": 598
     },
     {
         "Sura_No": 98,
         "Sura_Name_ARA": " سورة البينة",
         "Sura_Name_ENG": "Surat - Al-Bayyina",
         "START_PAGE": 598,
-        "END_PAGE": 599
+        "END_PAGE": 599,
+        "START_PAGE_MOD": 598,
+        "END_PAGE_MOD": 598
     },
     {
         "Sura_No": 99,
         "Sura_Name_ARA": " سورة الزلزلة",
         "Sura_Name_ENG": "Surat - Az-Zalzala",
         "START_PAGE": 599,
-        "END_PAGE": 599
+        "END_PAGE": 599,
+        "START_PAGE_MOD": 599,
+        "END_PAGE_MOD": 599
     },
     {
         "Sura_No": 100,
         "Sura_Name_ARA": " سورة العاديات",
         "Sura_Name_ENG": "Surat - Al-adiyat",
         "START_PAGE": 599,
-        "END_PAGE": 600
+        "END_PAGE": 600,
+        "START_PAGE_MOD": 599,
+        "END_PAGE_MOD": 599
     },
     {
         "Sura_No": 101,
         "Sura_Name_ARA": " سورة القارعة",
         "Sura_Name_ENG": "Surat - Al-Qaria",
         "START_PAGE": 600,
-        "END_PAGE": 600
+        "END_PAGE": 600,
+        "START_PAGE_MOD": 600,
+        "END_PAGE_MOD": 600
     },
     {
         "Sura_No": 102,
         "Sura_Name_ARA": " سورة التكاثر",
         "Sura_Name_ENG": "Surat - At-Takathur",
         "START_PAGE": 600,
-        "END_PAGE": 600
+        "END_PAGE": 600,
+        "START_PAGE_MOD": 600,
+        "END_PAGE_MOD": 600
     },
     {
         "Sura_No": 103,
         "Sura_Name_ARA": " سورة العصر",
         "Sura_Name_ENG": "Surat - Al-Asr",
         "START_PAGE": 601,
-        "END_PAGE": 601
+        "END_PAGE": 601,
+        "START_PAGE_MOD": 601,
+        "END_PAGE_MOD": 601
     },
     {
         "Sura_No": 104,
         "Sura_Name_ARA": " سورة الهمزة",
         "Sura_Name_ENG": "Surat - Al-Humaza",
         "START_PAGE": 601,
-        "END_PAGE": 601
+        "END_PAGE": 601,
+        "START_PAGE_MOD": 601,
+        "END_PAGE_MOD": 601
     },
     {
         "Sura_No": 105,
         "Sura_Name_ARA": " سورة الفيل",
         "Sura_Name_ENG": "Surat - Al-Fil",
         "START_PAGE": 601,
-        "END_PAGE": 601
+        "END_PAGE": 601,
+        "START_PAGE_MOD": 601,
+        "END_PAGE_MOD": 601
     },
     {
         "Sura_No": 106,
         "Sura_Name_ARA": " سورة قريش",
         "Sura_Name_ENG": "Surat - Quraish",
         "START_PAGE": 602,
-        "END_PAGE": 602
+        "END_PAGE": 602,
+        "START_PAGE_MOD": 602,
+        "END_PAGE_MOD": 602
     },
     {
         "Sura_No": 107,
         "Sura_Name_ARA": " سورة الماعون",
         "Sura_Name_ENG": "Surat - Al-Maun",
         "START_PAGE": 602,
-        "END_PAGE": 602
+        "END_PAGE": 602,
+        "START_PAGE_MOD": 602,
+        "END_PAGE_MOD": 602
     },
     {
         "Sura_No": 108,
         "Sura_Name_ARA": " سورة الكوثر",
         "Sura_Name_ENG": "Surat - Al-Kauther",
         "START_PAGE": 602,
-        "END_PAGE": 602
+        "END_PAGE": 602,
+        "START_PAGE_MOD": 602,
+        "END_PAGE_MOD": 602
     },
     {
         "Sura_No": 109,
         "Sura_Name_ARA": " سورة الكافرون",
         "Sura_Name_ENG": "Surat - Al-Kafiroon",
         "START_PAGE": 603,
-        "END_PAGE": 603
+        "END_PAGE": 603,
+        "START_PAGE_MOD": 603,
+        "END_PAGE_MOD": 603
     },
     {
         "Sura_No": 110,
         "Sura_Name_ARA": " سورة النصر",
         "Sura_Name_ENG": "Surat - An-Nasr",
         "START_PAGE": 603,
-        "END_PAGE": 603
+        "END_PAGE": 603,
+        "START_PAGE_MOD": 603,
+        "END_PAGE_MOD": 603
     },
     {
         "Sura_No": 111,
         "Sura_Name_ARA": " سورة المسد",
         "Sura_Name_ENG": "Surat - Al-Masadd",
         "START_PAGE": 603,
-        "END_PAGE": 603
+        "END_PAGE": 603,
+        "START_PAGE_MOD": 603,
+        "END_PAGE_MOD": 603
     },
     {
         "Sura_No": 112,
         "Sura_Name_ARA": " سورة الإخلاص",
         "Sura_Name_ENG": "Surat - Al-Ikhlas",
         "START_PAGE": 604,
-        "END_PAGE": 604
+        "END_PAGE": 604,
+        "START_PAGE_MOD": 604,
+        "END_PAGE_MOD": 604
     },
     {
         "Sura_No": 113,
         "Sura_Name_ARA": " سورة الفلق",
         "Sura_Name_ENG": "Surat - Al-Falaq",
         "START_PAGE": 604,
-        "END_PAGE": 604
+        "END_PAGE": 604,
+        "START_PAGE_MOD": 604,
+        "END_PAGE_MOD": 604
     },
     {
         "Sura_No": 114,
         "Sura_Name_ARA": " سورة الناس",
         "Sura_Name_ENG": "Surat - An-Nas",
         "START_PAGE": 604,
-        "END_PAGE": 604
+        "END_PAGE": 604,
+        "START_PAGE_MOD": 604,
+        "END_PAGE_MOD": 604
     }
 ]

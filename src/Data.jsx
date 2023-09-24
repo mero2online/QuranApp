@@ -1,21 +1,34 @@
-import jsonData from './QuranData.json';
+import jsonQuranData from './QuranData.json';
+import jsonQuranPagesData from './QuranPagesData.json';
 
-export const loadData = () => JSON.parse(JSON.stringify(jsonData));
+export const loadData = (json) => JSON.parse(JSON.stringify(json));
 
 export const range = (start, end) =>
   Array(end - start + 1)
     .fill()
     .map((_, idx) => start + idx);
 
+export const pagesData = (p) => {
+  const data = loadData(jsonQuranPagesData);
+  const pageData = data.filter((d) => {
+    if (d.Page_No <= p) return d;
+  });
+
+  return pageData;
+};
+
 export const suraDataLinks = () => {
-  const data = loadData();
+  const data = loadData(jsonQuranData);
 
   let final = [];
   data.forEach((page, idx) => {
+    // if (idx < data.length - 1)
+    //   if (page.END_PAGE_MOD === data.at(idx + 1).START_PAGE_MOD)
+    //     console.log(page.Sura_Name_ARA, page.END_PAGE_MOD);
     const pagesPerSura =
-      page.START_PAGE === page.END_PAGE
-        ? [page.START_PAGE]
-        : range(page.START_PAGE, page.END_PAGE);
+      page.START_PAGE_MOD === page.END_PAGE_MOD
+        ? [page.START_PAGE_MOD]
+        : range(page.START_PAGE_MOD, page.END_PAGE_MOD);
     let sData = [];
     pagesPerSura.forEach((s, i) => {
       sData.push({
