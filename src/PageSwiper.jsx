@@ -34,7 +34,7 @@ export const PageSwiper = ({ ranges }) => {
     });
 
     swiperElRef.current.addEventListener('slidechange', (e) => {
-      if (e.detail[0].activeIndex) {
+      if (e.detail[0].activeIndex !== undefined) {
         let pathName = String(window.location.pathname).split('/');
         pathName[2] = ranges[e.detail[0].activeIndex];
         let newPath = pathName.join('/');
