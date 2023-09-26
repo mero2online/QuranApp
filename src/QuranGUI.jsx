@@ -23,7 +23,7 @@ const QuranGUI = () => {
     const SuraNumber = getSuraNumberFromURL(d);
     const pData = pagesData(pageIndex);
     setSura(d[SuraNumber[0].id]);
-    setPageData(pData.at(-1))
+    setPageData(pData.at(-1));
   }, [pageIndex]);
 
   return (
@@ -31,9 +31,14 @@ const QuranGUI = () => {
       <Link to='/'>
         <button>Home</button>
       </Link>
+      <Link to='/ranges'>
+        <button>Ranges</button>
+      </Link>
       <DrawerCustomized Data={d} />
       <div>
-        <div>Juz {pageData.Juz} Hez {pageData.Hez} Rub {pageData.Rub}</div>
+        <div>
+          Juz {pageData.Juz} Hez {pageData.Hez} Rub {pageData.Rub}
+        </div>
         <div>Current Page {pageIndex}</div>
         <div>{sura.name}</div>
       </div>

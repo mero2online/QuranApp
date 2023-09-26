@@ -17,6 +17,34 @@ export const pagesData = (p) => {
   return pageData;
 };
 
+export const filterByJuz = (p) => {
+  const data = loadData(jsonQuranPagesData);
+  const juzData = data.filter((d) => {
+    if (d.Juz === p) return d;
+  });
+
+  return juzData;
+};
+
+export const filterBySuraNo = (p) => {
+  const data = loadData(jsonQuranData);
+  const juzData = data.filter((d) => {
+    if (d.Sura_No === p) return d;
+  });
+
+  return juzData;
+};
+
+export const rangesData = () => {
+  let final = [];
+  [...Array(30).keys()].forEach((j) => {
+    const data = filterByJuz(j + 1);
+    final.push(data);
+  });
+
+  return final;
+};
+
 export const suraDataLinks = () => {
   const data = loadData(jsonQuranData);
 
