@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-import vitePluginFtp from 'vite-plugin-ftp';
+// import vitePluginFtp from 'vite-plugin-ftp';
 import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
@@ -21,7 +21,7 @@ export default ({ mode, command }) => {
       react(),
       VitePWA({ registerType: 'autoUpdate' }),
       // a simple useful vite ftp plugin, based on ftp-deploy, upload your dist file after vite build.
-      vitePluginFtp({
+      /* vitePluginFtp({
         // eslint-disable-next-line no-undef
         host: process.env.FTP_HOST,
         // eslint-disable-next-line no-undef
@@ -32,7 +32,7 @@ export default ({ mode, command }) => {
         user: process.env.FTP_USER,
         // eslint-disable-next-line no-undef
         password: process.env.FTP_PASSWORD,
-      }),
+      }), */
     ],
   });
 };
