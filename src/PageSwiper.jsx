@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { register } from 'swiper/element/bundle';
 import PropTypes from 'prop-types';
-import { modifyUrl } from './Data';
+import { getImageUrl, modifyUrl } from './Data';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePageIndex } from './features/app/appSlice';
 
@@ -57,7 +57,7 @@ export const PageSwiper = ({ ranges }) => {
         return (
           <swiper-slide key={i}>
             <img
-              src={`/quran/imgs/jpg/page${pageNo}.jpg`}
+              src={getImageUrl(`imgs/jpg/page${pageNo}.jpg`)}
               alt={`page${pageNo}`}
               className='img'
               loading='lazy'

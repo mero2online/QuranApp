@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import ProgressiveImage from 'react-progressive-graceful-image';
+import { getImageUrl } from './Data';
 
 const LoadImages = ({ RANGE }) => {
   const [IMAGES, setIMAGES] = useState([]);
@@ -12,7 +13,7 @@ const LoadImages = ({ RANGE }) => {
       images.push({
         id: element,
         pageNo: pageNo,
-        url: `/quran/imgs/jpg/page${pageNo}.jpg`,
+        url: getImageUrl(`imgs/jpg/page${pageNo}.jpg`),
       });
     });
     setIMAGES(images);
@@ -52,7 +53,8 @@ const LoadImages = ({ RANGE }) => {
           <ProgressiveImage
             key={image.id}
             src={image.url}
-            placeholder='/quran/imgs/placeholder.jpg'
+            // placeholder='/quran/imgs/placeholder.jpg'
+            placeholder={getImageUrl('imgs/placeholder.jpg')}
           >
             {(src) => {
               return <img ref={onRefChange} src={src} alt={image.pageNo} width='5%' height='5%' />;

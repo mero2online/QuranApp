@@ -107,3 +107,7 @@ export const getSuraNumberFromURL = (Data) => {
   });
   return SuraNumber;
 };
+
+export const getImageUrl = (name) => {
+  return new URL(`./assets/${name}`, import.meta.url).href;
+};
