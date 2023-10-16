@@ -56,8 +56,17 @@ const LoadImages = ({ RANGE }) => {
             // placeholder='/quran/imgs/placeholder.jpg'
             placeholder={getImageUrl('imgs/placeholder.jpg')}
           >
-            {(src) => {
-              return <img ref={onRefChange} src={src} alt={image.pageNo} width='5%' height='5%' />;
+            {(src, loading) => {
+              return (
+                <img
+                  ref={onRefChange}
+                  style={{ opacity: loading ? 0.5 : 1 }}
+                  src={src}
+                  alt={image.pageNo}
+                  width='5%'
+                  height='5%'
+                />
+              );
             }}
           </ProgressiveImage>
         ))}
