@@ -41,6 +41,7 @@ export const PageSwiper = ({ ranges }) => {
         if (location.pathname !== newPath) {
           dispatch(changePageIndex(ranges[e.detail[0].activeIndex]));
           modifyUrl(location.pathname, newPath);
+          localStorage.setItem('lastPage', ranges[e.detail[0].activeIndex])
         }
       }
     });

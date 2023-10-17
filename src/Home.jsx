@@ -16,16 +16,18 @@ const Home = () => {
   return (
     <div>
       <div>Quran App</div>
-      <div>
-        <Link to='/all'>
-          <button>All Pages</button>
-        </Link>
-      </div>
-      <div>
-        <Link to='/ranges'>
-          <button>Ranges</button>
-        </Link>
-      </div>
+      <Link to='/all'>
+        <button>All Pages</button>
+      </Link>
+      <Link to='/ranges'>
+        <button>Ranges</button>
+      </Link>
+      <Link to='/bookmarks'>
+        <button>Bookmarks</button>
+      </Link>
+      <Link to={`/${localStorage.getItem('lastPage')}`}>
+        <button>LastPage</button>
+      </Link>
       <List>
         {data.map((page, index) => (
           <div key={index}>
@@ -38,9 +40,7 @@ const Home = () => {
                   <ListItemIcon sx={{ color: 'white' }}>
                     <LibraryBooksIcon />
                   </ListItemIcon>
-                  <ListItemText
-                    primary={page.name}
-                  />
+                  <ListItemText primary={page.name} />
                 </ListItemButton>
               </ListItem>
             </Link>
