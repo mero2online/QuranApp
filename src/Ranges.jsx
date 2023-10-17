@@ -5,6 +5,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Typography,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
@@ -24,11 +25,11 @@ const Ranges = () => {
           <div key={index}>
             <Link
               to={`/${page.at(0).Page_No}`}
-              style={{ textDecoration: 'none', color: 'white' }}
+              style={{ textDecoration: 'none', color: '#1290ca' }}
             >
               <ListItem disablePadding>
                 <ListItemButton>
-                  <ListItemIcon sx={{ color: 'white' }}>
+                  <ListItemIcon sx={{ color: '#1290ca' }}>
                     <LibraryBooksIcon />
                   </ListItemIcon>
                   <ListItemText primary={`Juz ${index + 1}`} />
@@ -43,7 +44,20 @@ const Ranges = () => {
                     to={`/${p.Page_No}`}
                     style={{ textDecoration: 'none', color: 'white' }}
                   >
-                    <ListItem disablePadding>
+                    <ListItem
+                      disablePadding
+                      secondaryAction={
+                        <Typography
+                          sx={{ display: 'inline' }}
+                          component='span'
+                          variant='body2'
+                          // color='text.primary'
+                          color='white'
+                        >
+                          {String(p.Page_No).padStart(3, '0')}
+                        </Typography>
+                      }
+                    >
                       <ListItemButton>
                         <ListItemIcon sx={{ color: 'white' }}>
                           <MenuBookIcon />
@@ -52,9 +66,17 @@ const Ranges = () => {
                           primary={`Rub ${p.Rub} - ${
                             filterBySuraNo(p.Sura_No)[0].Sura_Name_ARA
                           }`}
-                        />
-                        <ListItemText
-                          primary={`${p.Aya_Start}`}
+                          secondary={
+                            <Typography
+                              sx={{ display: 'inline' }}
+                              component='span'
+                              variant='body2'
+                              // color='text.primary'
+                              color='white'
+                            >
+                              {p.Aya_Start}
+                            </Typography>
+                          }
                         />
                       </ListItemButton>
                     </ListItem>
