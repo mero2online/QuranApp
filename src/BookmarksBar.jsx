@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addBookmark, setBookmarks } from './features/app/appSlice';
+import {
+  addBookmark,
+  setBookmarks,
+  setSnackBarsOptions,
+} from './features/app/appSlice';
 import { useNavigate } from 'react-router-dom';
 
 const BookmarksBar = () => {
@@ -28,6 +32,13 @@ const BookmarksBar = () => {
           Rub: pageData.Rub,
         })
       );
+    dispatch(
+      setSnackBarsOptions({
+        open: true,
+        severity: 'success',
+        msg: `Bookmark Page ${pageIndex} Added Successfully`,
+      })
+    );
   };
   const onClickLoad = () => {
     navigate('/bookmarks');

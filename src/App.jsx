@@ -5,6 +5,7 @@ import Home from './Home';
 import All from './All';
 import Ranges from './Ranges';
 import BookmarksPage from './BookmarksPage';
+import CustomizedSnackBars from './CustomizedSnackBars';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/:PageNo' element={<QuranGUI />}></Route>
         <Route path='/bookmarks' element={<BookmarksPage />}></Route>
       </Routes>
+      <CustomizedSnackBars />
     </>
   );
 }

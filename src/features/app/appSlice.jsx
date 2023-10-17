@@ -5,6 +5,7 @@ const initialState = {
   sura: '',
   pageData: {},
   bookmarks: [],
+  snackBarsOptions: { open: false, severity: 'success', msg: 'success' },
 };
 
 const appSlice = createSlice({
@@ -31,6 +32,9 @@ const appSlice = createSlice({
       state.bookmarks.splice(action.payload, 1);
       localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
     },
+    setSnackBarsOptions: (state, action) => {
+      state.snackBarsOptions = action.payload;
+    },
   },
 });
 
@@ -41,6 +45,7 @@ export const {
   setBookmarks,
   addBookmark,
   deleteBookmark,
+  setSnackBarsOptions,
 } = appSlice.actions;
 
 export default appSlice.reducer;

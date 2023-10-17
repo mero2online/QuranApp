@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setBookmarks, deleteBookmark } from './features/app/appSlice';
+import {
+  setBookmarks,
+  deleteBookmark,
+  setSnackBarsOptions,
+} from './features/app/appSlice';
 import { Link } from 'react-router-dom';
 import {
   Divider,
@@ -24,6 +28,13 @@ const BookmarksPage = () => {
   }, []);
   const onClickDeleteBtn = (index) => {
     dispatch(deleteBookmark(index));
+    dispatch(
+      setSnackBarsOptions({
+        open: true,
+        severity: 'success',
+        msg: `Bookmark ${index + 1} Deleted Successfully`,
+      })
+    );
   };
   return (
     <div>
@@ -56,6 +67,10 @@ const BookmarksPage = () => {
                   style={{ textDecoration: 'none', color: 'white' }}
                 >
                   <ListItemButton>
+                    <ListItemText
+                      primary={`${index + 1} - `}
+                      style={{ marginRight: 5 }}
+                    />
                     <ListItemText
                       primary={page.sura}
                       secondary={
