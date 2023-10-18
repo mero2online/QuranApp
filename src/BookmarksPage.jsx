@@ -4,6 +4,9 @@ import {
   setBookmarks,
   deleteBookmark,
   setSnackBarsOptions,
+  setSortBookmarksType,
+  setSortBookmarksBy,
+  sortBookmarks,
 } from './features/app/appSlice';
 import { Link } from 'react-router-dom';
 import {
@@ -19,7 +22,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const BookmarksPage = () => {
   const dispatch = useDispatch();
-  const bookmarks = useSelector((state) => state.app.bookmarks);
+  const { bookmarks, sortBookmarksType } = useSelector((state) => state.app);
 
   useEffect(() => {
     const localBookmarks = JSON.parse(localStorage.getItem('bookmarks'));
@@ -41,6 +44,35 @@ const BookmarksPage = () => {
       <Link to='/'>
         <button>Home</button>
       </Link>
+      <div>
+        <button
+          onClick={() => {
+            dispatch(setSortBookmarksType(false));
+            dispatch(setSortBookmarksBy('dateTime'));
+            dispatch(sortBookmarks());
+          }}
+        >
+          SortBy DT
+        </button>
+        <button
+          onClick={() => {
+            dispatch(setSortBookmarksType(false));
+            dispatch(setSortBookmarksBy('pageIndex'));
+            dispatch(sortBookmarks());
+          }}
+        >
+          SortBy Page
+        </button>
+        <button
+          onClick={() => {
+            dispatch(setSortBookmarksType(!sortBookmarksType));
+            dispatch(sortBookmarks());
+          }}
+          style={{ background: sortBookmarksType ? '#1290ca' : 'gray' }}
+        >
+          {sortBookmarksType ? 'D' : 'A'}
+        </button>
+      </div>
       <List>
         {bookmarks.map((page, index) => {
           const mDate = new Date(page.dateTime).toLocaleDateString('en-GB');

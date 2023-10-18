@@ -6,6 +6,8 @@ const initialState = {
   pageData: {},
   bookmarks: [],
   snackBarsOptions: { open: false, severity: 'success', msg: 'success' },
+  sortBookmarksBy: 'dateTime',
+  sortBookmarksType: false,
 };
 
 const appSlice = createSlice({
@@ -32,6 +34,20 @@ const appSlice = createSlice({
       state.bookmarks.splice(action.payload, 1);
       localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
     },
+    // eslint-disable-next-line no-unused-vars
+    sortBookmarks: (state, _action) => {
+      state.bookmarks = state.bookmarks.sort((a, b) => {
+        const one = a[state.sortBookmarksBy];
+        const two = b[state.sortBookmarksBy];
+        return state.sortBookmarksType ? two - one : one - two;
+      });
+    },
+    setSortBookmarksBy: (state, action) => {
+      state.sortBookmarksBy = action.payload;
+    },
+    setSortBookmarksType: (state, action) => {
+      state.sortBookmarksType = action.payload;
+    },
     setSnackBarsOptions: (state, action) => {
       state.snackBarsOptions = action.payload;
     },
@@ -45,6 +61,9 @@ export const {
   setBookmarks,
   addBookmark,
   deleteBookmark,
+  sortBookmarks,
+  setSortBookmarksBy,
+  setSortBookmarksType,
   setSnackBarsOptions,
 } = appSlice.actions;
 
