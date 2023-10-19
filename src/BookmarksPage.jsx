@@ -51,7 +51,7 @@ const BookmarksPage = () => {
 
   const renderSortBy = () => {
     const sortByOptions = [
-      { name: 'DT', value: 'dateTime' },
+      { name: 'Time', value: 'dateTime' },
       { name: 'Page', value: 'pageIndex' },
     ];
 
@@ -140,7 +140,7 @@ const BookmarksPage = () => {
                             color='gray'
                             // color='text.primary'
                           >
-                            {`DT: ${mDate} ${mTime}`}
+                            {`Time: ${mDate} ${mTime}`}
                           </Typography>
                         </>
                       }
