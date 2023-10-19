@@ -22,13 +22,22 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const BookmarksPage = () => {
   const dispatch = useDispatch();
-  const { bookmarks, sortBookmarksType } = useSelector((state) => state.app);
+  const { bookmarks, sortBookmarksType, sortBookmarksBy } = useSelector(
+    (state) => state.app
+  );
 
   useEffect(() => {
     const localBookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     if (localBookmarks) dispatch(setBookmarks(localBookmarks));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    dispatch(setSortBookmarksType(sortBookmarksType));
+    dispatch(setSortBookmarksBy(sortBookmarksBy));
+    dispatch(sortBookmarks());
+  }, [dispatch, sortBookmarksBy, sortBookmarksType]);
+
   const onClickDeleteBtn = (index) => {
     dispatch(deleteBookmark(index));
     dispatch(
@@ -39,30 +48,39 @@ const BookmarksPage = () => {
       })
     );
   };
+
+  const renderSortBy = () => {
+    const sortByOptions = [
+      { name: 'DT', value: 'dateTime' },
+      { name: 'Page', value: 'pageIndex' },
+    ];
+
+    return sortByOptions.map((o, i) => {
+      return (
+        <button
+          key={i}
+          onClick={() => {
+            dispatch(setSortBookmarksType(false));
+            dispatch(setSortBookmarksBy(o.value));
+            dispatch(sortBookmarks());
+          }}
+          style={{
+            background: o.value === sortBookmarksBy ? '#1290aa' : '',
+          }}
+        >
+          SortBy {o.name}
+        </button>
+      );
+    });
+  };
+
   return (
     <div>
       <Link to='/'>
         <button>Home</button>
       </Link>
       <div>
-        <button
-          onClick={() => {
-            dispatch(setSortBookmarksType(false));
-            dispatch(setSortBookmarksBy('dateTime'));
-            dispatch(sortBookmarks());
-          }}
-        >
-          SortBy DT
-        </button>
-        <button
-          onClick={() => {
-            dispatch(setSortBookmarksType(false));
-            dispatch(setSortBookmarksBy('pageIndex'));
-            dispatch(sortBookmarks());
-          }}
-        >
-          SortBy Page
-        </button>
+        {renderSortBy()}
         <button
           onClick={() => {
             dispatch(setSortBookmarksType(!sortBookmarksType));
