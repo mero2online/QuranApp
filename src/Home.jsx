@@ -15,7 +15,6 @@ const data = suraDataLinks();
 const Home = () => {
   return (
     <div>
-      <div>Quran App</div>
       <Link to='/all'>
         <button>All Pages</button>
       </Link>

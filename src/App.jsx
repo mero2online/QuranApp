@@ -6,10 +6,14 @@ import All from './All';
 import Ranges from './Ranges';
 import BookmarksPage from './BookmarksPage';
 import CustomizedSnackBars from './CustomizedSnackBars';
+import appData from '../package.json';
 
 function App() {
   return (
     <>
+      <div>
+        {appData.displayName} v{appData.version}
+      </div>
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/all' element={<All />}></Route>
