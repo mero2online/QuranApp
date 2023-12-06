@@ -28,10 +28,10 @@ const QuranGUI = () => {
   return (
     <>
       <Link to='/'>
-        <button>Home</button>
+        <button className='MyBtn'>Home</button>
       </Link>
       <Link to='/ranges'>
-        <button>Ranges</button>
+        <button className='MyBtn'>Ranges</button>
       </Link>
       <BookmarksBar />
       <DrawerCustomized Data={d} />

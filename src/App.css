@@ -49,6 +49,7 @@
 
 .MyBtn {
   color: white;
+  margin: 5px;
 }
 .activeIndex {
   background-color: black !important;

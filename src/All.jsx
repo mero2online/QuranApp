@@ -7,7 +7,7 @@ const All = () => {
     <div>
       <div>
         <Link to='/'>
-          <button>Home</button>
+          <button className='MyBtn'>Home</button>
         </Link>
       </div>
       <LoadImages RANGE={range(1, 604)} />

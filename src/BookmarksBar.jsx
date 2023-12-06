@@ -46,8 +46,12 @@ const BookmarksBar = () => {
 
   return (
     <div>
-      <button onClick={onClickAdd}>Add Bookmark</button>
-      <button onClick={onClickLoad}>Load Bookmark</button>
+      <button className='MyBtn' onClick={onClickAdd}>
+        Add Bookmark
+      </button>
+      <button className='MyBtn' onClick={onClickLoad}>
+        Load Bookmark
+      </button>
     </div>
   );
 };

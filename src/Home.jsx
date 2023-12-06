@@ -16,16 +16,16 @@ const Home = () => {
   return (
     <div>
       <Link to='/all'>
-        <button>All Pages</button>
+        <button className='MyBtn'>All Pages</button>
       </Link>
       <Link to='/ranges'>
-        <button>Ranges</button>
+        <button className='MyBtn'>Ranges</button>
       </Link>
       <Link to='/bookmarks'>
-        <button>Bookmarks</button>
+        <button className='MyBtn'>Bookmarks</button>
       </Link>
       <Link to={`/${localStorage.getItem('lastPage')}`}>
-        <button>LastPage</button>
+        <button className='MyBtn'>LastPage</button>
       </Link>
       <List>
         {data.map((page, index) => (

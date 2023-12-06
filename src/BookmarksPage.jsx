@@ -58,6 +58,7 @@ const BookmarksPage = () => {
     return sortByOptions.map((o, i) => {
       return (
         <button
+          className='MyBtn'
           key={i}
           onClick={() => {
             dispatch(setSortBookmarksType(false));
@@ -77,11 +78,12 @@ const BookmarksPage = () => {
   return (
     <div>
       <Link to='/'>
-        <button>Home</button>
+        <button className='MyBtn'>Home</button>
       </Link>
       <div>
         {renderSortBy()}
         <button
+          className='MyBtn'
           onClick={() => {
             dispatch(setSortBookmarksType(!sortBookmarksType));
             dispatch(sortBookmarks());
