@@ -42,7 +42,19 @@ const QuranGUI = () => {
         }}
       >
         <DrawerCustomized Data={d} />
-        <div style={{ flexGrow: 1 }}>{sura.name}</div>
+        <div
+          style={{
+            flexGrow: 1,
+            minWidth: 0,
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            fontSize: '0.9rem',
+          }}
+          title={sura.name}
+        >
+          {sura.name}
+        </div>
         <BookmarksBar />
       </div>
       <div style={{ flexShrink: 0 }}>

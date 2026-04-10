@@ -2,11 +2,6 @@ import { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import HomeIcon from '@mui/icons-material/Home';
-import ViewListIcon from '@mui/icons-material/ViewList';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
 import {
   Drawer,
   Box,
@@ -20,16 +15,11 @@ import {
   Collapse,
 } from '@mui/material';
 
-import MenuIcon from '@mui/icons-material/Menu';
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setBookmarksModalOpen } from './features/app/appSlice';
 import { getSuraNumberFromURL } from './Data';
-import { useThemeMode } from './theme/ThemeModeProvider';
 
 const DrawerCustomized = ({ Data }) => {
-  const dispatch = useDispatch();
-  const { mode, toggleMode } = useThemeMode();
   const [state, setState] = useState(false);
   const [openCollapse, setOpenCollapse] = useState({});
   const [suraIndex, setSuraIndex] = useState();
@@ -81,62 +71,6 @@ const DrawerCustomized = ({ Data }) => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        <Link
-          to='/'
-          style={{ textDecoration: 'none', color: 'inherit' }}
-        >
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText primary='Home' />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-        <Link
-          to='/ranges'
-          style={{ textDecoration: 'none', color: 'inherit' }}
-        >
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <ViewListIcon />
-              </ListItemIcon>
-              <ListItemText primary='Ranges' />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-        <ListItem disablePadding>
-          <ListItemButton
-            onClick={(e) => {
-              e.stopPropagation();
-              dispatch(setBookmarksModalOpen(true));
-              setState(false);
-            }}
-          >
-            <ListItemIcon>
-              <BookmarkIcon />
-            </ListItemIcon>
-            <ListItemText primary='Load Bookmark' />
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleMode();
-            }}
-          >
-            <ListItemIcon>
-              {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-            </ListItemIcon>
-            <ListItemText
-              primary={mode === 'dark' ? 'Light Mode' : 'Dark Mode'}
-            />
-          </ListItemButton>
-        </ListItem>
-        <Divider />
         {Data.map((page, index) => {
           const activeIndexClass = suraIndex === index ? 'activeIndex' : '';
           return (
@@ -202,13 +136,11 @@ const DrawerCustomized = ({ Data }) => {
     <Box sx={{ display: 'inline-flex' }}>
       <IconButton
         size='large'
-        aria-label='account of current user'
-        aria-controls='menu-appbar'
-        aria-haspopup='true'
+        aria-label='Open sura list'
         onClick={toggleDrawer(true)}
         color='inherit'
       >
-        <MenuIcon />
+        <AutoStoriesIcon />
       </IconButton>
 
       <Drawer anchor='left' open={state} onClose={toggleDrawer(false)}>

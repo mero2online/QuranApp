@@ -1,6 +1,11 @@
 import { createContext, useContext, useMemo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import {
+  createTheme,
+  ThemeProvider,
+  CssBaseline,
+  GlobalStyles,
+} from '@mui/material';
 
 const ThemeModeContext = createContext({
   mode: 'dark',
@@ -27,6 +32,19 @@ const ThemeModeProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('themeMode', mode);
     document.documentElement.style.colorScheme = mode;
+    // Paint html/body background immediately so iOS reload / overscroll
+    // doesn't flash black before React mounts.
+    const bg = mode === 'light' ? '#ffffff' : '#121212';
+    document.documentElement.style.backgroundColor = bg;
+    document.body.style.backgroundColor = bg;
+    // Update the iOS/Android status-bar color too.
+    let meta = document.querySelector('meta[name="theme-color"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'theme-color';
+      document.head.appendChild(meta);
+    }
+    meta.content = bg;
   }, [mode]);
 
   const value = useMemo(
@@ -54,6 +72,13 @@ const ThemeModeProvider = ({ children }) => {
     <ThemeModeContext.Provider value={value}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <GlobalStyles
+          styles={{
+            'html, body': {
+              backgroundColor: theme.palette.background.default,
+            },
+          }}
+        />
         {children}
       </ThemeProvider>
     </ThemeModeContext.Provider>

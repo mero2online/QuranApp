@@ -8,16 +8,25 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import { filterBySuraNo, rangesData } from './Data';
 
 const Ranges = () => {
   const data = rangesData();
+  const navigate = useNavigate();
   return (
     <div>
+      <Button
+        className='MyBtn'
+        onClick={() => navigate(-1)}
+        startIcon={<ArrowBackIcon />}
+      >
+        Back
+      </Button>
       <Link to='/'>
         <Button className='MyBtn'>Home</Button>
       </Link>
