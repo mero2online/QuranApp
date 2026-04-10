@@ -5,6 +5,7 @@ const initialState = {
   sura: '',
   pageData: {},
   bookmarks: [],
+  bookmarksModalOpen: false,
   snackBarsOptions: { open: false, severity: 'success', msg: 'success' },
   sortBookmarksBy: 'dateTime',
   sortBookmarksType: false,
@@ -34,6 +35,15 @@ const appSlice = createSlice({
       state.bookmarks.splice(action.payload, 1);
       localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
     },
+    deleteBookmarkByPageIndex: (state, action) => {
+      state.bookmarks = state.bookmarks.filter(
+        (b) => b.pageIndex !== action.payload
+      );
+      localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
+    },
+    setBookmarksModalOpen: (state, action) => {
+      state.bookmarksModalOpen = action.payload;
+    },
     // eslint-disable-next-line no-unused-vars
     sortBookmarks: (state, _action) => {
       state.bookmarks = state.bookmarks.sort((a, b) => {
@@ -61,6 +71,8 @@ export const {
   setBookmarks,
   addBookmark,
   deleteBookmark,
+  deleteBookmarkByPageIndex,
+  setBookmarksModalOpen,
   sortBookmarks,
   setSortBookmarksBy,
   setSortBookmarksType,

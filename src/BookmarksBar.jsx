@@ -2,14 +2,16 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addBookmark,
+  deleteBookmarkByPageIndex,
   setBookmarks,
   setSnackBarsOptions,
 } from './features/app/appSlice';
-import { useNavigate } from 'react-router-dom';
+import { IconButton } from '@mui/material';
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 const BookmarksBar = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { pageIndex, bookmarks, sura, pageData } = useSelector(
     (state) => state.app
   );
@@ -20,8 +22,19 @@ const BookmarksBar = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onClickAdd = () => {
-    if (!bookmarks.includes(pageIndex))
+  const isMarked = bookmarks.some((b) => b.pageIndex === pageIndex);
+
+  const onClickStar = () => {
+    if (isMarked) {
+      dispatch(deleteBookmarkByPageIndex(pageIndex));
+      dispatch(
+        setSnackBarsOptions({
+          open: true,
+          severity: 'success',
+          msg: `Bookmark Page ${pageIndex} Removed`,
+        })
+      );
+    } else {
       dispatch(
         addBookmark({
           pageIndex: pageIndex,
@@ -32,27 +45,25 @@ const BookmarksBar = () => {
           Rub: pageData.Rub,
         })
       );
-    dispatch(
-      setSnackBarsOptions({
-        open: true,
-        severity: 'success',
-        msg: `Bookmark Page ${pageIndex} Added Successfully`,
-      })
-    );
-  };
-  const onClickLoad = () => {
-    navigate('/bookmarks');
+      dispatch(
+        setSnackBarsOptions({
+          open: true,
+          severity: 'success',
+          msg: `Bookmark Page ${pageIndex} Added Successfully`,
+        })
+      );
+    }
   };
 
   return (
-    <div>
-      <button className='MyBtn' onClick={onClickAdd}>
-        Add Bookmark
-      </button>
-      <button className='MyBtn' onClick={onClickLoad}>
-        Load Bookmark
-      </button>
-    </div>
+    <IconButton
+      onClick={onClickStar}
+      aria-label={isMarked ? 'Remove Bookmark' : 'Add Bookmark'}
+      title={isMarked ? 'Remove Bookmark' : 'Add Bookmark'}
+      sx={{ color: isMarked ? '#FFD700' : 'inherit' }}
+    >
+      {isMarked ? <StarIcon /> : <StarBorderIcon />}
+    </IconButton>
   );
 };
 

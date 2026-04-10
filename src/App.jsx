@@ -4,7 +4,7 @@ import QuranGUI from './QuranGUI';
 import Home from './Home';
 import All from './All';
 import Ranges from './Ranges';
-import BookmarksPage from './BookmarksPage';
+import BookmarksModal from './BookmarksModal';
 import CustomizedSnackBars from './CustomizedSnackBars';
 import appData from '../package.json';
 
@@ -19,8 +19,8 @@ function App() {
         <Route path='/all' element={<All />}></Route>
         <Route path='/ranges' element={<Ranges />}></Route>
         <Route path='/:PageNo' element={<QuranGUI />}></Route>
-        <Route path='/bookmarks' element={<BookmarksPage />}></Route>
       </Routes>
+      <BookmarksModal />
       <CustomizedSnackBars />
     </>
   );

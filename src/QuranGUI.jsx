@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getSuraNumberFromURL, pagesData, range, suraDataLinks } from './Data';
 import { PageSwiper } from './PageSwiper';
 import DrawerCustomized from './DrawerCustomized';
@@ -27,20 +27,15 @@ const QuranGUI = () => {
 
   return (
     <>
-      <Link to='/'>
-        <button className='MyBtn'>Home</button>
-      </Link>
-      <Link to='/ranges'>
-        <button className='MyBtn'>Ranges</button>
-      </Link>
-      <BookmarksBar />
-      <DrawerCustomized Data={d} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <DrawerCustomized Data={d} />
+        <div style={{ flexGrow: 1 }}>{sura.name}</div>
+        <BookmarksBar />
+      </div>
       <div>
         <div>
-          Juz {pageData?.Juz} Hez {pageData?.Hez} Rub {pageData?.Rub}
+          Page {pageIndex} Juz {pageData?.Juz} Hez {pageData?.Hez} Rub {pageData?.Rub}
         </div>
-        <div>Current Page {pageIndex}</div>
-        <div>{sura.name}</div>
       </div>
       <PageSwiper ranges={range(1, 604)}></PageSwiper>
     </>

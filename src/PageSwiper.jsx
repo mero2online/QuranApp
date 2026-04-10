@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { register } from 'swiper/element/bundle';
 import PropTypes from 'prop-types';
 import { getImageUrl, modifyUrl } from './Data';
@@ -7,65 +7,80 @@ import { changePageIndex } from './features/app/appSlice';
 
 register();
 
+// How many neighboring slides (on each side of active) actually mount an <img>.
+// Keeping this small is critical on iOS Safari, which crashes when too many
+// large JPGs are decoded in memory at once.
+const PRELOAD_NEIGHBORS = 1;
+
 export const PageSwiper = ({ ranges }) => {
   const swiperElRef = useRef(null);
   const dispatch = useDispatch();
   const pageIndex = useSelector((state) => state.app.pageIndex);
+  const [activeIndex, setActiveIndex] = useState(
+    Math.max(0, ranges.indexOf(pageIndex))
+  );
 
+  // Initialize swiper exactly once.
   useEffect(() => {
+    const el = swiperElRef.current;
+    if (!el) return;
+
     const swiperParams = {
-      lazy: true,
       dir: 'rtl',
       slidesPerView: 1,
     };
+    Object.assign(el, swiperParams);
+    el.initialize();
 
-    // now we need to assign all parameters to Swiper element
-    Object.assign(swiperElRef.current, swiperParams);
-
-    // and now initialize it
-    swiperElRef.current.initialize();
-
-    // listen for Swiper events using addEventListener
-    swiperElRef.current.addEventListener('progress', (e) => {
-      const [swiper, progress] = e.detail;
-      {
-        progress, swiper;
+    const onSlideChange = (e) => {
+      const idx = e.detail[0].activeIndex;
+      if (idx === undefined) return;
+      setActiveIndex(idx);
+      const newPage = ranges[idx];
+      let pathName = String(window.location.pathname).split('/');
+      pathName[2] = newPage;
+      const newPath = pathName.join('/');
+      if (location.pathname !== newPath) {
+        dispatch(changePageIndex(newPage));
+        modifyUrl(location.pathname, newPath);
+        localStorage.setItem('lastPage', newPage);
       }
-    });
+    };
 
-    swiperElRef.current.addEventListener('slidechange', (e) => {
-      if (e.detail[0].activeIndex !== undefined) {
-        let pathName = String(window.location.pathname).split('/');
-        pathName[2] = ranges[e.detail[0].activeIndex];
-        let newPath = pathName.join('/');
-        if (location.pathname !== newPath) {
-          dispatch(changePageIndex(ranges[e.detail[0].activeIndex]));
-          modifyUrl(location.pathname, newPath);
-          localStorage.setItem('lastPage', ranges[e.detail[0].activeIndex])
-        }
-      }
-    });
+    el.addEventListener('slidechange', onSlideChange);
+    return () => {
+      el.removeEventListener('slidechange', onSlideChange);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    if (swiperElRef.current && pageIndex) {
-      swiperElRef.current.swiper.slideTo(ranges.indexOf(pageIndex));
+  // Sync swiper to external pageIndex changes (e.g. router navigation).
+  useEffect(() => {
+    const el = swiperElRef.current;
+    if (!el || !el.swiper) return;
+    const targetIdx = ranges.indexOf(pageIndex);
+    if (targetIdx >= 0 && targetIdx !== el.swiper.activeIndex) {
+      el.swiper.slideTo(targetIdx, 0);
+      setActiveIndex(targetIdx);
     }
-  }, [ranges, dispatch, pageIndex]);
+  }, [pageIndex, ranges]);
 
   return (
     <swiper-container init='false' ref={swiperElRef}>
       {ranges.map((img, i) => {
         const pageNo = String(img).padStart(3, '0');
+        const shouldRender = Math.abs(i - activeIndex) <= PRELOAD_NEIGHBORS;
         return (
           <swiper-slide key={i}>
-            <img
-              src={getImageUrl(`imgs/jpg/page${pageNo}.jpg`)}
-              alt={`page${pageNo}`}
-              className='img'
-              loading='lazy'
-              onLoad={() => {
-                console.log('loaded');
-              }}
-            />
+            {shouldRender ? (
+              <img
+                src={getImageUrl(`imgs/jpg/page${pageNo}.jpg`)}
+                alt={`page${pageNo}`}
+                className='img'
+                loading='lazy'
+                decoding='async'
+              />
+            ) : null}
           </swiper-slide>
         );
       })}

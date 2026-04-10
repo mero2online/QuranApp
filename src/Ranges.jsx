@@ -1,4 +1,5 @@
 import {
+  Button,
   Divider,
   List,
   ListItem,
@@ -18,21 +19,24 @@ const Ranges = () => {
   return (
     <div>
       <Link to='/'>
-        <button>Home</button>
+        <Button className='MyBtn'>Home</Button>
       </Link>
       <List>
         {data.map((page, index) => (
           <div key={index}>
             <Link
               to={`/${page.at(0).Page_No}`}
-              style={{ textDecoration: 'none', color: '#1290ca' }}
+              style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <ListItem disablePadding>
                 <ListItemButton>
-                  <ListItemIcon sx={{ color: '#1290ca' }}>
-                    <LibraryBooksIcon />
+                  <ListItemIcon color='primary'>
+                    <LibraryBooksIcon color='primary' />
                   </ListItemIcon>
-                  <ListItemText primary={`Juz ${index + 1}`} />
+                  <ListItemText
+                    primary={`Juz ${index + 1}`}
+                    primaryTypographyProps={{ color: 'primary' }}
+                  />
                 </ListItemButton>
               </ListItem>
             </Link>
@@ -42,7 +46,7 @@ const Ranges = () => {
                 <div key={idx}>
                   <Link
                     to={`/${p.Page_No}`}
-                    style={{ textDecoration: 'none', color: 'white' }}
+                    style={{ textDecoration: 'none', color: 'inherit' }}
                   >
                     <ListItem
                       disablePadding
@@ -51,15 +55,14 @@ const Ranges = () => {
                           sx={{ display: 'inline' }}
                           component='span'
                           variant='body2'
-                          // color='text.primary'
-                          color='white'
+                          color='text.primary'
                         >
                           {String(p.Page_No).padStart(3, '0')}
                         </Typography>
                       }
                     >
                       <ListItemButton>
-                        <ListItemIcon sx={{ color: 'white' }}>
+                        <ListItemIcon>
                           <MenuBookIcon />
                         </ListItemIcon>
                         <ListItemText
@@ -71,8 +74,7 @@ const Ranges = () => {
                               sx={{ display: 'inline' }}
                               component='span'
                               variant='body2'
-                              // color='text.primary'
-                              color='white'
+                              color='text.secondary'
                             >
                               {p.Aya_Start}
                             </Typography>
