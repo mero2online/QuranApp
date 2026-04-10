@@ -26,19 +26,33 @@ const QuranGUI = () => {
   }, [pageIndex, dispatch]);
 
   return (
-    <>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          flexShrink: 0,
+        }}
+      >
         <DrawerCustomized Data={d} />
         <div style={{ flexGrow: 1 }}>{sura.name}</div>
         <BookmarksBar />
       </div>
-      <div>
-        <div>
-          Page {pageIndex} Juz {pageData?.Juz} Hez {pageData?.Hez} Rub {pageData?.Rub}
-        </div>
+      <div style={{ flexShrink: 0 }}>
+        Page {pageIndex} Juz {pageData?.Juz} Hez {pageData?.Hez} Rub{' '}
+        {pageData?.Rub}
       </div>
-      <PageSwiper ranges={range(1, 604)}></PageSwiper>
-    </>
+      <div style={{ flex: 1, minHeight: 0 }}>
+        <PageSwiper ranges={range(1, 604)}></PageSwiper>
+      </div>
+    </div>
   );
 };
 

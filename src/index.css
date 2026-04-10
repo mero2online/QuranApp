@@ -18,11 +18,21 @@ a {
   text-decoration: inherit;
 }
 
+html,
 body {
   margin: 0;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+}
+
+#root {
+  height: 100%;
 }
 
 h1 {
