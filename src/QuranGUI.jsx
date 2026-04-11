@@ -7,11 +7,14 @@ const d = suraDataLinks();
 import { useDispatch, useSelector } from 'react-redux';
 import { changePageIndex, setSura, setPageData } from './features/app/appSlice';
 import BookmarksBar from './BookmarksBar';
+import { useWakeLock } from './useWakeLock';
 
 const QuranGUI = () => {
   const dispatch = useDispatch();
   const { pageIndex, sura, pageData } = useSelector((state) => state.app);
   let { PageNo } = useParams();
+
+  useWakeLock(pageIndex);
 
   useEffect(() => {
     if (PageNo) {
