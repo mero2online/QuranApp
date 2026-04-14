@@ -12,6 +12,8 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 import jsonQuranData from './QuranData.json';
+import SearchBar from './SearchBar';
+import SearchResultsList from './SearchResultsList';
 
 const Home = () => {
   const [query, setQuery] = useState('');
@@ -29,6 +31,10 @@ const Home = () => {
 
   return (
     <Container maxWidth='md' sx={{ py: 2 }}>
+      <Box sx={{ position: 'relative', zIndex: 10, mb: 2 }}>
+        <SearchBar />
+        <SearchResultsList />
+      </Box>
       <TextField
         fullWidth
         size='small'

@@ -9,6 +9,11 @@ const initialState = {
   snackBarsOptions: { open: false, severity: 'success', msg: 'success' },
   sortBookmarksBy: 'dateTime',
   sortBookmarksType: false,
+  searchQuery: '',
+  searchResults: [],
+  isSearching: false,
+  searchError: null,
+  highlightVerse: null,
 };
 
 const appSlice = createSlice({
@@ -61,6 +66,24 @@ const appSlice = createSlice({
     setSnackBarsOptions: (state, action) => {
       state.snackBarsOptions = action.payload;
     },
+    setSearchQuery: (state, action) => {
+      state.searchQuery = action.payload;
+    },
+    setSearchResults: (state, action) => {
+      state.searchResults = action.payload;
+    },
+    setIsSearching: (state, action) => {
+      state.isSearching = action.payload;
+    },
+    setSearchError: (state, action) => {
+      state.searchError = action.payload;
+    },
+    setHighlightVerse: (state, action) => {
+      state.highlightVerse = action.payload;
+    },
+    clearHighlight: (state) => {
+      state.highlightVerse = null;
+    },
   },
 });
 
@@ -77,6 +100,12 @@ export const {
   setSortBookmarksBy,
   setSortBookmarksType,
   setSnackBarsOptions,
+  setSearchQuery,
+  setSearchResults,
+  setIsSearching,
+  setSearchError,
+  setHighlightVerse,
+  clearHighlight,
 } = appSlice.actions;
 
 export default appSlice.reducer;

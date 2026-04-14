@@ -16,6 +16,16 @@ export default ({ mode, command }) => {
     server: {
       port: '3000',
       // hmr: { overlay: false },
+      proxy: {
+        // Proxy the Quran text/glyph SQLite zip downloads in dev so the
+        // browser sees them as same-origin (bypassing the upstream CORS
+        // restriction that only allows https://mero2online.com).
+        '/HQD': {
+          target: 'https://mero2online.com',
+          changeOrigin: true,
+          secure: true,
+        },
+      },
     },
     plugins: [
       react(),
@@ -43,7 +53,7 @@ export default ({ mode, command }) => {
         workbox: {
           clientsClaim: true,
           skipWaiting: false,
-          globPatterns: ['**/*.{js,css,html,svg,ico,woff,woff2}'],
+          globPatterns: ['**/*.{js,css,html,svg,ico,woff,woff2,wasm}'],
           maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
           navigateFallback: '/quran/index.html',
           cleanupOutdatedCaches: true,
@@ -69,6 +79,21 @@ export default ({ mode, command }) => {
               options: {
                 cacheName: 'quran-static',
                 expiration: { maxEntries: 100 },
+              },
+            },
+            {
+              // Verse-text and glyph-bounding-box SQLite databases used by the
+              // in-browser search + ayah highlight feature. Fetched once then
+              // served from cache forever.
+              urlPattern: /\/HQD\/.*\.zip$/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'quran-db-zips',
+                expiration: {
+                  maxEntries: 4,
+                  maxAgeSeconds: 60 * 60 * 24 * 365,
+                },
+                cacheableResponse: { statuses: [0, 200] },
               },
             },
           ],
