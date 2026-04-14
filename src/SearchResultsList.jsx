@@ -112,18 +112,49 @@ const SearchResultsList = () => {
           لا توجد نتائج
         </Typography>
       )}
+      {!isSearching && searchResults.length > 0 && (
+        <Typography
+          variant='caption'
+          component='div'
+          sx={{
+            px: 2,
+            pt: 1,
+            textAlign: 'right',
+            color: 'rgba(255,255,255,0.8)',
+            direction: 'rtl',
+          }}
+        >
+          {searchResults.length}{' '}
+          {searchResults.length === 1 ? 'نتيجة' : 'نتائج'}
+        </Typography>
+      )}
       <List dense>
         {searchResults.map((r, i) => (
           <ListItem key={`${r.sura}:${r.ayah}:${i}`} disablePadding>
-            <ListItemButton onClick={() => onResultClick(r)}>
+            <ListItemButton
+              onClick={() => onResultClick(r)}
+              sx={{ display: 'block', textAlign: 'right' }}
+            >
               <ListItemText
+                disableTypography
                 primary={
                   <Typography
                     component='div'
                     variant='body1'
                     dir='rtl'
-                    sx={{ color: 'white' }}
+                    sx={{ color: 'white', textAlign: 'right' }}
                   >
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        minWidth: '1.5em',
+                        marginLeft: 6,
+                        color: 'rgba(255,255,255,0.7)',
+                        fontWeight: 600,
+                      }}
+                    >
+                      {i + 1}.
+                    </span>
                     {renderSnippet(r.text)}
                   </Typography>
                 }
@@ -131,7 +162,11 @@ const SearchResultsList = () => {
                   <Typography
                     component='div'
                     variant='caption'
-                    sx={{ color: 'rgba(255,255,255,0.7)' }}
+                    dir='rtl'
+                    sx={{
+                      color: 'rgba(255,255,255,0.7)',
+                      textAlign: 'right',
+                    }}
                   >
                     {suraNameMap.get(r.sura) || `Sura ${r.sura}`} — آية{' '}
                     {r.ayah}
