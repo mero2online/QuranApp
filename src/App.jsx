@@ -6,6 +6,7 @@ import Ranges from './Ranges';
 import BookmarksModal from './BookmarksModal';
 import CustomizedSnackBars from './CustomizedSnackBars';
 import AppBar from './AppBar';
+import UpdatePrompt from './UpdatePrompt';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       </div>
       <BookmarksModal />
       <CustomizedSnackBars />
+      <UpdatePrompt />
     </>
   );
 }

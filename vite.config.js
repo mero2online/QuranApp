@@ -20,7 +20,7 @@ export default ({ mode, command }) => {
     plugins: [
       react(),
       VitePWA({
-        registerType: 'autoUpdate',
+        registerType: 'prompt',
         includeAssets: ['favicon.ico', 'favicon.svg', 'robots.txt'],
         manifest: {
           name: 'Quran App',
@@ -41,8 +41,8 @@ export default ({ mode, command }) => {
           ],
         },
         workbox: {
-          // Precache the app shell (JS/CSS/HTML) but skip the bundled JPGs —
-          // 187MB of pages would make first-load brutal. Pages cache at runtime instead.
+          clientsClaim: true,
+          skipWaiting: false,
           globPatterns: ['**/*.{js,css,html,svg,ico,woff,woff2}'],
           maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
           navigateFallback: '/quran/index.html',
