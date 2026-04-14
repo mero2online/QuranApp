@@ -21,7 +21,14 @@ function App() {
         <div style={{ flexShrink: 0 }}>
           <AppBar />
         </div>
-        <div style={{ flex: 1, minHeight: 0, overflow: 'auto' }}>
+        <div
+          style={{
+            flex: 1,
+            minHeight: 0,
+            overflow: 'auto',
+            scrollbarGutter: 'stable',
+          }}
+        >
           <Routes>
             <Route path='/' element={<Home />}></Route>
             <Route path='/ranges' element={<Ranges />}></Route>

@@ -10,6 +10,7 @@ import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 
 function UpdatePrompt() {
   const [registration, setRegistration] = useState(null);
+  const [updating, setUpdating] = useState(false);
 
   const {
     needRefresh: [needRefresh],
@@ -19,6 +20,21 @@ function UpdatePrompt() {
       if (r) setRegistration(r);
     },
   });
+
+  const onUpdate = async () => {
+    setUpdating(true);
+    try {
+      // Tell the waiting SW to skip waiting; vite-plugin-pwa will reload
+      // on controllerchange. We also set a safety-net reload in case
+      // controllerchange never fires (e.g. no waiting worker present).
+      await updateServiceWorker(true);
+    } catch {
+      /* ignore */
+    }
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
+  };
 
   useEffect(() => {
     if (!registration) return;
@@ -64,12 +80,13 @@ function UpdatePrompt() {
       </DialogContent>
       <DialogActions>
         <Button
-          onClick={() => updateServiceWorker(true)}
+          onClick={onUpdate}
           variant='contained'
           color='primary'
           autoFocus
+          disabled={updating}
         >
-          Update Now
+          {updating ? 'Updating...' : 'Update Now'}
         </Button>
       </DialogActions>
     </Dialog>

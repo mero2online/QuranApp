@@ -1,5 +1,6 @@
 import {
   Button,
+  Container,
   Divider,
   List,
   ListItem,
@@ -19,7 +20,7 @@ const Ranges = () => {
   const data = rangesData();
   const navigate = useNavigate();
   return (
-    <div>
+    <Container maxWidth='md' sx={{ py: 2 }}>
       <Button
         className='MyBtn'
         onClick={() => navigate(-1)}
@@ -99,7 +100,7 @@ const Ranges = () => {
           </div>
         ))}
       </List>
-    </div>
+    </Container>
   );
 };
 
